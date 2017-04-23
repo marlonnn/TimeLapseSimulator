@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--复制此文档各种Ioc定义方式到需要的地方-->
+<objects xmlns="http://www.springframework.net">
+
+  <object name="device" type="TimeLapseSimulator.Device.Device, TimeLapseSimulator">
+    <property name="Slides">
+      <list>
+        <ref object="slide1" />
+        <ref object="slide2" />
+        <ref object="slide3" />
+      </list>
+    </property>
+  </object>
+
+  <object name="slide1" type="TimeLapseSimulator.Device.Slide, TimeLapseSimulator">
+    <property name="ID" value="1"/>
+    <property name="Name" value="Slide1"/>
+    <property name="Patient">
+      <object type="TimeLapseSimulator.Device.Patient, TimeLapseSimulator" >
+        <property name="ID" value="1"/>
+        <property name="Name" value="P1"/>
+        <property name="Time" value="2017/04/23 22:04:11"/>
+      </object>
+    </property>
+    <property name="Position">
+      <object type="TimeLapseSimulator.Device.Position, TimeLapseSimulator" >
+        <property name="Row" value="1"/>
+        <property name="Column" value="1"/>
+      </object>
+    </property>
+    <property name="Cells">
+      <list>
+        <ref object="S1_Cell1" />
+        <ref object="S1_Cell2" />
+        <ref object="S1_Cell3" />
+        <ref object="S1_Cell4" />
+        <ref object="S1_Cell5" />
+        <ref object="S1_Cell6" />
+        <ref object="S1_Cell7" />
+        <ref object="S1_Cell8" />
+        <ref object="S1_Cell9" />
+        <ref object="S1_Cell10" />
+        <ref object="S1_Cell11" />
+        <ref object="S1_Cell12" />
+        <ref object="S1_Cell13" />
+        <ref object="S1_Cell14" />
+        <ref object="S1_Cell15" />
+      </list>
+    </property>
+  </object>
+
+  <object name="slide2" type="TimeLapseSimulator.Device.Slide, TimeLapseSimulator">
+    <property name="ID" value="2"/>
+    <property name="Name" value="Slide2"/>
+    <property name="Patient">
+      <object type="TimeLapseSimulator.Device.Patient, TimeLapseSimulator" >
+        <property name="ID" value="2"/>
+        <property name="Name" value="P2"/>
+        <property name="Time" value="2017/04/23 20:04:11"/>
+      </object>
+    </property>
+    <property name="Position">
+      <object type="TimeLapseSimulator.Device.Position, TimeLapseSimulator" >
+        <property name="Row" value="1"/>
+        <property name="Column" value="2"/>
+      </object>
+    </property>
+    <property name="Cells">
+      <list>
+        <ref object="S2_Cell1" />
+        <ref object="S2_Cell2" />
+        <ref object="S2_Cell3" />
+        <ref object="S2_Cell4" />
+        <ref object="S2_Cell5" />
+        <ref object="S2_Cell6" />
+        <ref object="S2_Cell7" />
+        <ref object="S2_Cell8" />
+        <ref object="S2_Cell9" />
+        <ref object="S2_Cell10" />
+        <ref object="S2_Cell11" />
+        <ref object="S2_Cell12" />
+        <ref object="S2_Cell13" />
+        <ref object="S2_Cell14" />
+        <ref object="S2_Cell15" />
+      </list>
+    </property>
+  </object>
+
+  <object name="slide3" type="TimeLapseSimulator.Device.Slide, TimeLapseSimulator">
+    <property name="ID" value="3"/>
+    <property name="Name" value="Slide3"/>
+    <property name="Patient">
+      <object type="TimeLapseSimulator.Device.Patient, TimeLapseSimulator" >
+        <property name="ID" value="3"/>
+        <property name="Name" value="P3"/>
+        <property name="Time" value="2017/04/23 22:04:11"/>
+      </object>
+    </property>
+    <property name="Position">
+      <object type="TimeLapseSimulator.Device.Position, TimeLapseSimulator" >
+        <property name="Row" value="1"/>
+        <property name="Column" value="3"/>
+      </object>
+    </property>
+    <property name="Cells">
+      <list>
+        <ref object="S3_Cell1" />
+        <ref object="S3_Cell2" />
+        <ref object="S3_Cell3" />
+        <ref object="S3_Cell4" />
+        <ref object="S3_Cell5" />
+        <ref object="S3_Cell6" />
+        <ref object="S3_Cell7" />
+        <ref object="S3_Cell8" />
+        <ref object="S3_Cell9" />
+        <ref object="S3_Cell10" />
+        <ref object="S3_Cell11" />
+        <ref object="S3_Cell12" />
+        <ref object="S3_Cell13" />
+        <ref object="S3_Cell14" />
+        <ref object="S3_Cell15" />
+      </list>
+    </property>
+  </object>
+</objects>

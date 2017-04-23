@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--复制此文档各种Ioc定义方式到需要的地方-->
+<objects xmlns='http://www.springframework.net'
+  xmlns:db="http://www.springframework.net/database">
+
+  <db:provider id="dbProvider" provider="MySql.Data.MySqlClient"
+               connectionString="server=localhost;port=3306;database=timelapse;uid=root;password=root"/>
+
+  <object id="adoTemplate" type="Spring.Data.Generic.AdoTemplate, Spring.Data">
+    <property name="DbProvider" ref="dbProvider"/>
+  </object>
+
+  <object id="sqliteConvertor" type="Summer.System.Data.VarietyDb.SqliteConvertor, Summer.System">
+    <property name="provider" ref="dbProvider"/>
+  </object>
+  
+  <object id="logADO" type="TimeLapse.DBADO.LogADO, TimeLapse">
+    <property name="adoTmplte" ref="adoTemplate"/>
+    <property name="convertor" ref="sqliteConvertor"/>
+  </object>
+
+  <object id="patientADO" type="TimeLapse.DBADO.PatientADO, TimeLapse">
+    <property name="adoTmplte" ref="adoTemplate"/>
+    <property name="convertor" ref="sqliteConvertor"/>
+  </object>
+
+  <object id="slideADO" type="TimeLapse.DBADO.SlideADO, TimeLapse">
+    <property name="adoTmplte" ref="adoTemplate"/>
+    <property name="convertor" ref="sqliteConvertor"/>
+  </object>
+
+  <object id="transferADO" type="TimeLapse.DBADO.TransferADO, TimeLapse">
+    <property name="adoTmplte" ref="adoTemplate"/>
+    <property name="convertor" ref="sqliteConvertor"/>
+  </object>
+
+  <object id="treamentADO" type="TimeLapse.DBADO.TreamentADO, TimeLapse">
+    <property name="adoTmplte" ref="adoTemplate"/>
+    <property name="convertor" ref="sqliteConvertor"/>
+  </object>
+  
+  <object id="dbADOFactory" type="TimeLapse.DBADO.DBADOFactory, TimeLapse">
+    <constructor-arg ref="logADO"/>
+    <constructor-arg ref="patientADO"/>
+    <constructor-arg ref="slideADO"/>
+    <constructor-arg ref="transferADO"/>
+    <constructor-arg ref="treamentADO"/>
+  </object>
+</objects>
