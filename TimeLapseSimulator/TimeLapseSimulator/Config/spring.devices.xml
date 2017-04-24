@@ -8,6 +8,7 @@
         <ref object="slide1" />
         <ref object="slide2" />
         <ref object="slide3" />
+        <ref object="slide4" />
       </list>
     </property>
   </object>
@@ -119,6 +120,43 @@
         <ref object="S3_Cell13" />
         <ref object="S3_Cell14" />
         <ref object="S3_Cell15" />
+      </list>
+    </property>
+  </object>
+
+  <object name="slide4" type="TimeLapseSimulator.Device.Slide, TimeLapseSimulator">
+    <property name="ID" value="4"/>
+    <property name="Name" value="Slide4"/>
+    <property name="Patient">
+      <object type="TimeLapseSimulator.Device.Patient, TimeLapseSimulator" >
+        <property name="ID" value="4"/>
+        <property name="Name" value="P4"/>
+        <property name="Time" value="2017/04/24 22:04:11"/>
+      </object>
+    </property>
+    <property name="Position">
+      <object type="TimeLapseSimulator.Device.Position, TimeLapseSimulator" >
+        <property name="Row" value="1"/>
+        <property name="Column" value="4"/>
+      </object>
+    </property>
+    <property name="Cells">
+      <list>
+        <ref object="S4_Cell1" />
+        <ref object="S4_Cell2" />
+        <ref object="S4_Cell3" />
+        <ref object="S4_Cell4" />
+        <ref object="S4_Cell5" />
+        <ref object="S4_Cell6" />
+        <ref object="S4_Cell7" />
+        <ref object="S4_Cell8" />
+        <ref object="S4_Cell9" />
+        <ref object="S4_Cell10" />
+        <ref object="S4_Cell11" />
+        <ref object="S4_Cell12" />
+        <ref object="S4_Cell13" />
+        <ref object="S4_Cell14" />
+        <ref object="S4_Cell15" />
       </list>
     </property>
   </object>

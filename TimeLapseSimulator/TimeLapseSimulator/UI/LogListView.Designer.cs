@@ -31,12 +31,6 @@ namespace TimeLapseSimulator.UI
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            // 开启双缓冲
-            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
-
-            // Enable the OnNotifyMessage event so we get a chance to filter out 
-            // Windows messages before they get to the form's WndProc
-            this.SetStyle(ControlStyles.EnableNotifyMessage, true);
 
             this.MouseClick += new MouseEventHandler(this.logListView_MouseClick);
 
@@ -50,8 +44,6 @@ namespace TimeLapseSimulator.UI
             this.TabIndex = 2;
             this.UseCompatibleStateImageBehavior = false;
             this.View = View.Details;
-
-            MaxLogRecords = 300;
         }
 
         #endregion

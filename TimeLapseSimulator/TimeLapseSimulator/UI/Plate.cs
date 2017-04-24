@@ -288,6 +288,13 @@ namespace TimeLapseSimulator.UI
             }
             this.grid.ColumnHeadersHeight = PlateColumnHeadersHeight;
             this.grid.RowHeadersWidth = PlateRowHeadersWidth;
+            SetSize();
+        }
+
+        private void SetSize()
+        {
+            this.Width = PlateRowHeadersWidth + PlateWellsWidth * PlateColumns;
+            this.Height = PlateColumnHeadersHeight + PlateWellsHeight * PlateRows;
         }
 
         public Plate()

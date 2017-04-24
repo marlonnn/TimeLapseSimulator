@@ -2,6 +2,7 @@
 <!--复制此文档各种Ioc定义方式到需要的地方-->
 <objects xmlns="http://www.springframework.net">
 
-  <object name="form1" type="TimeLapseSimulator.Form1, TimeLapseSimulator">
+  <object name="simulatorForm" type="TimeLapseSimulator.SimulatorForm, TimeLapseSimulator">
+    <property name="device" ref="device"/>
   </object>
 </objects>

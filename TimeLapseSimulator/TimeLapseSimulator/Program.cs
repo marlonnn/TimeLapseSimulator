@@ -20,10 +20,8 @@ namespace TimeLapseSimulator
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Cell S1_Cell1 = SpringHelper.GetObject<Cell>("S1_Cell1");
-
-                TimeLapseSimulator.Device.Device device = SpringHelper.GetObject<TimeLapseSimulator.Device.Device>("device");
-                Application.Run(new SimulatorForm());
+                SimulatorForm simulatorForm = SpringHelper.GetObject<SimulatorForm>("simulatorForm");
+                Application.Run(simulatorForm);
 
             }
             catch (Exception ee)

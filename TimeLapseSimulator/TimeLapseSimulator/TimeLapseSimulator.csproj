@@ -74,12 +74,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Device\Camera.cs" />
     <Compile Include="Device\Cell.cs" />
     <Compile Include="Device\Device.cs" />
     <Compile Include="Device\Focal.cs" />
     <Compile Include="Device\Patient.cs" />
     <Compile Include="Device\Position.cs" />
     <Compile Include="Device\Slide.cs" />
+    <Compile Include="OperationFactory.cs" />
     <Compile Include="SimulatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +102,12 @@
     <Compile Include="UI\Plate.Designer.cs">
       <DependentUpon>Plate.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\SlideCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SlideCtrl.Designer.cs">
+      <DependentUpon>SlideCtrl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="SimulatorForm.resx">
       <DependentUpon>SimulatorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +120,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\SlideCtrl.resx">
+      <DependentUpon>SlideCtrl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -131,6 +142,9 @@
   <ItemGroup>
     <Content Include="Config\log4net.xml" />
     <Content Include="Config\spring.db.xml" />
+    <Content Include="Config\spring.slide_4.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Config\spring.slide_3.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -143,7 +157,12 @@
     <Content Include="Config\spring.devices.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Config\spring.ui.xml" />
+    <Content Include="Config\spring.ui.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\readme.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="References\C5.dll" />
     <Content Include="References\Common.Logging.dll" />
     <Content Include="References\log4net.dll" />

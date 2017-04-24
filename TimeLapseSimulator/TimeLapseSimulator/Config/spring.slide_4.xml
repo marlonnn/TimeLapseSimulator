@@ -1,0 +1,559 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--复制此文档各种Ioc定义方式到需要的地方-->
+<objects xmlns="http://www.springframework.net">
+  <!--培养皿的结构为3x5-->
+  <!--培养皿1胚胎1-->
+  <object name="S4_Cell1" type="TimeLapseSimulator.Device.Cell, TimeLapseSimulator">
+    <property name="ID" value="1"/>
+    <property name="Name" value="S4_Cell1"/>
+    <property name="Position">
+      <object type="TimeLapseSimulator.Device.Position, TimeLapseSimulator" >
+        <property name="Row" value="1"/>
+        <property name="Column" value="1"/>
+      </object>
+    </property>
+    <property name="Focals">
+      <list>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="1"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="2"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="3"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="4"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="5"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="6"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="7"/>
+        </object>
+      </list>
+    </property>
+  </object>
+  
+  <!--培养皿1胚胎2-->
+  <object name="S4_Cell2" type="TimeLapseSimulator.Device.Cell, TimeLapseSimulator">
+    <property name="ID" value="2"/>
+    <property name="Name" value="S4_Cell2"/>
+    <property name="Position">
+      <object type="TimeLapseSimulator.Device.Position, TimeLapseSimulator" >
+        <property name="Row" value="1"/>
+        <property name="Column" value="2"/>
+      </object>
+    </property>
+    <property name="Focals">
+      <list>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="1"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="2"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="3"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="4"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="5"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="6"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="7"/>
+        </object>
+      </list>
+    </property>
+  </object>
+
+  <!--培养皿1胚胎3-->
+  <object name="S4_Cell3" type="TimeLapseSimulator.Device.Cell, TimeLapseSimulator">
+    <property name="ID" value="3"/>
+    <property name="Name" value="S4_Cell3"/>
+    <property name="Position">
+      <object type="TimeLapseSimulator.Device.Position, TimeLapseSimulator" >
+        <property name="Row" value="1"/>
+        <property name="Column" value="3"/>
+      </object>
+    </property>
+    <property name="Focals">
+      <list>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="1"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="2"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="3"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="4"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="5"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="6"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="7"/>
+        </object>
+      </list>
+    </property>
+  </object>
+
+  <!--培养皿1胚胎4-->
+  <object name="S4_Cell4" type="TimeLapseSimulator.Device.Cell, TimeLapseSimulator">
+    <property name="ID" value="4"/>
+    <property name="Name" value="S4_Cell4"/>
+    <property name="Position">
+      <object type="TimeLapseSimulator.Device.Position, TimeLapseSimulator" >
+        <property name="Row" value="2"/>
+        <property name="Column" value="1"/>
+      </object>
+    </property>
+    <property name="Focals">
+      <list>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="1"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="2"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="3"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="4"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="5"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="6"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="7"/>
+        </object>
+      </list>
+    </property>
+  </object>
+  
+  <!--培养皿1胚胎5-->
+  <object name="S4_Cell5" type="TimeLapseSimulator.Device.Cell, TimeLapseSimulator">
+    <property name="ID" value="5"/>
+    <property name="Name" value="S4_Cell5"/>
+    <property name="Position">
+      <object type="TimeLapseSimulator.Device.Position, TimeLapseSimulator" >
+        <property name="Row" value="2"/>
+        <property name="Column" value="2"/>
+      </object>
+    </property>
+    <property name="Focals">
+      <list>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="1"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="2"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="3"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="4"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="5"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="6"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="7"/>
+        </object>
+      </list>
+    </property>
+  </object>
+
+  <!--培养皿1胚胎6-->
+  <object name="S4_Cell6" type="TimeLapseSimulator.Device.Cell, TimeLapseSimulator">
+    <property name="ID" value="6"/>
+    <property name="Name" value="S4_Cell6"/>
+    <property name="Position">
+      <object type="TimeLapseSimulator.Device.Position, TimeLapseSimulator" >
+        <property name="Row" value="2"/>
+        <property name="Column" value="3"/>
+      </object>
+    </property>
+    <property name="Focals">
+      <list>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="1"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="2"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="3"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="4"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="5"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="6"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="7"/>
+        </object>
+      </list>
+    </property>
+  </object>
+
+  <!--培养皿1胚胎7-->
+  <object name="S4_Cell7" type="TimeLapseSimulator.Device.Cell, TimeLapseSimulator">
+    <property name="ID" value="7"/>
+    <property name="Name" value="S4_Cell7"/>
+    <property name="Position">
+      <object type="TimeLapseSimulator.Device.Position, TimeLapseSimulator" >
+        <property name="Row" value="3"/>
+        <property name="Column" value="1"/>
+      </object>
+    </property>
+    <property name="Focals">
+      <list>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="1"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="2"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="3"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="4"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="5"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="6"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="7"/>
+        </object>
+      </list>
+    </property>
+  </object>
+
+  <!--培养皿1胚胎7-->
+  <object name="S4_Cell8" type="TimeLapseSimulator.Device.Cell, TimeLapseSimulator">
+    <property name="ID" value="8"/>
+    <property name="Name" value="S4_Cell8"/>
+    <property name="Position">
+      <object type="TimeLapseSimulator.Device.Position, TimeLapseSimulator" >
+        <property name="Row" value="3"/>
+        <property name="Column" value="2"/>
+      </object>
+    </property>
+    <property name="Focals">
+      <list>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="1"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="2"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="3"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="4"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="5"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="6"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="7"/>
+        </object>
+      </list>
+    </property>
+  </object>
+
+  <!--培养皿1胚胎9-->
+  <object name="S4_Cell9" type="TimeLapseSimulator.Device.Cell, TimeLapseSimulator">
+    <property name="ID" value="9"/>
+    <property name="Name" value="S4_Cell9"/>
+    <property name="Position">
+      <object type="TimeLapseSimulator.Device.Position, TimeLapseSimulator" >
+        <property name="Row" value="3"/>
+        <property name="Column" value="3"/>
+      </object>
+    </property>
+    <property name="Focals">
+      <list>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="1"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="2"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="3"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="4"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="5"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="6"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="7"/>
+        </object>
+      </list>
+    </property>
+  </object>
+
+  <!--培养皿1胚胎10-->
+  <object name="S4_Cell10" type="TimeLapseSimulator.Device.Cell, TimeLapseSimulator">
+    <property name="ID" value="10"/>
+    <property name="Name" value="S4_Cell10"/>
+    <property name="Position">
+      <object type="TimeLapseSimulator.Device.Position, TimeLapseSimulator" >
+        <property name="Row" value="4"/>
+        <property name="Column" value="1"/>
+      </object>
+    </property>
+    <property name="Focals">
+      <list>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="1"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="2"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="3"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="4"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="5"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="6"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="7"/>
+        </object>
+      </list>
+    </property>
+  </object>
+
+  <!--培养皿1胚胎11-->
+  <object name="S4_Cell11" type="TimeLapseSimulator.Device.Cell, TimeLapseSimulator">
+    <property name="ID" value="11"/>
+    <property name="Name" value="S4_Cell11"/>
+    <property name="Position">
+      <object type="TimeLapseSimulator.Device.Position, TimeLapseSimulator" >
+        <property name="Row" value="4"/>
+        <property name="Column" value="2"/>
+      </object>
+    </property>
+    <property name="Focals">
+      <list>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="1"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="2"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="3"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="4"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="5"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="6"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="7"/>
+        </object>
+      </list>
+    </property>
+  </object>
+
+  <!--培养皿1胚胎12-->
+  <object name="S4_Cell12" type="TimeLapseSimulator.Device.Cell, TimeLapseSimulator">
+    <property name="ID" value="12"/>
+    <property name="Name" value="S4_Cell12"/>
+    <property name="Position">
+      <object type="TimeLapseSimulator.Device.Position, TimeLapseSimulator" >
+        <property name="Row" value="4"/>
+        <property name="Column" value="3"/>
+      </object>
+    </property>
+    <property name="Focals">
+      <list>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="1"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="2"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="3"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="4"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="5"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="6"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="7"/>
+        </object>
+      </list>
+    </property>
+  </object>
+
+  <!--培养皿1胚胎13-->
+  <object name="S4_Cell13" type="TimeLapseSimulator.Device.Cell, TimeLapseSimulator">
+    <property name="ID" value="13"/>
+    <property name="Name" value="S4_Cell13"/>
+    <property name="Position">
+      <object type="TimeLapseSimulator.Device.Position, TimeLapseSimulator" >
+        <property name="Row" value="5"/>
+        <property name="Column" value="1"/>
+      </object>
+    </property>
+    <property name="Focals">
+      <list>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="1"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="2"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="3"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="4"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="5"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="6"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="7"/>
+        </object>
+      </list>
+    </property>
+  </object>
+
+  <!--培养皿1胚胎14-->
+  <object name="S4_Cell14" type="TimeLapseSimulator.Device.Cell, TimeLapseSimulator">
+    <property name="ID" value="14"/>
+    <property name="Name" value="S4_Cell14"/>
+    <property name="Position">
+      <object type="TimeLapseSimulator.Device.Position, TimeLapseSimulator" >
+        <property name="Row" value="5"/>
+        <property name="Column" value="2"/>
+      </object>
+    </property>
+    <property name="Focals">
+      <list>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="1"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="2"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="3"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="4"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="5"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="6"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="7"/>
+        </object>
+      </list>
+    </property>
+  </object>
+
+  <!--培养皿1胚胎14-->
+  <object name="S4_Cell15" type="TimeLapseSimulator.Device.Cell, TimeLapseSimulator">
+    <property name="ID" value="15"/>
+    <property name="Name" value="S4_Cell15"/>
+    <property name="Position">
+      <object type="TimeLapseSimulator.Device.Position, TimeLapseSimulator" >
+        <property name="Row" value="5"/>
+        <property name="Column" value="3"/>
+      </object>
+    </property>
+    <property name="Focals">
+      <list>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="1"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="2"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="3"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="4"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="5"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="6"/>
+        </object>
+        <object type="TimeLapseSimulator.Device.Focal, TimeLapseSimulator" >
+          <property name="ID" value="7"/>
+        </object>
+      </list>
+    </property>
+  </object>
+</objects>

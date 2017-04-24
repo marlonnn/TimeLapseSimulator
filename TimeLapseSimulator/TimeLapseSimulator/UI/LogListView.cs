@@ -30,7 +30,13 @@ namespace TimeLapseSimulator.UI
             }
         }
 
-        public int MaxLogRecords { get; set; }
+        private int maxLogRercods;
+
+        public int MaxLogRecords
+        {
+            get { return this.maxLogRercods; }
+            set { this.maxLogRercods = value; }
+       }
 
         private ConcurrentQueue<string[]> queue = new ConcurrentQueue<string[]>();
 
@@ -59,6 +65,14 @@ namespace TimeLapseSimulator.UI
         public LogListView()
         {
             InitializeComponent();
+            // 开启双缓冲
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
+
+            // Enable the OnNotifyMessage event so we get a chance to filter out 
+            // Windows messages before they get to the form's WndProc
+            this.SetStyle(ControlStyles.EnableNotifyMessage, true);
+
+            MaxLogRecords = 300;
         }
 
         protected void UpdateListView(List<string[]> logs)
