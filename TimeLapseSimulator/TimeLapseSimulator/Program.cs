@@ -23,7 +23,7 @@ namespace TimeLapseSimulator
                 Cell S1_Cell1 = SpringHelper.GetObject<Cell>("S1_Cell1");
 
                 TimeLapseSimulator.Device.Device device = SpringHelper.GetObject<TimeLapseSimulator.Device.Device>("device");
-                Application.Run(new Form1());
+                Application.Run(new SimulatorForm());
 
             }
             catch (Exception ee)

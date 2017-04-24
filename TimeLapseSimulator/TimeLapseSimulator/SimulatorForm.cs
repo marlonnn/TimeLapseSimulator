@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TimeLapseSimulator
 {
-    public partial class Form1 : Form
+    public partial class SimulatorForm : Form
     {
-        public Form1()
+        public SimulatorForm()
         {
             InitializeComponent();
         }

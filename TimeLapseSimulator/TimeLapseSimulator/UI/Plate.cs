@@ -249,7 +249,7 @@ namespace TimeLapseSimulator.UI
                     wellvalues[i, j] = new WellValue();
                 }
             }
-
+            Draw(this.grid[0, 0]);
             //MultiSelectChanged();
         }
 
@@ -356,6 +356,24 @@ namespace TimeLapseSimulator.UI
                     dvc.Value = (System.Drawing.Bitmap)(image);
                 }
             }
+        }
+
+        private void Draw(DataGridViewCell dvc)
+        {
+            if (dvc.Value == null) return;
+            DrawColor(dvc);
+        }
+
+        /// <summary>
+        /// 画Item背景色
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="col"></param>
+        /// <param name="backColor"></param>
+        public void SetWellColor(int row, int col, Color backColor)
+        {
+            wellvalues[row, col].BackColor = backColor;
+            Draw(this.grid[col, row]);
         }
     }
 }
