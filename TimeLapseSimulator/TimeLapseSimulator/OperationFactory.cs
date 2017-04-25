@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using TimeLapseSimulator.DataBase.ADO;
 using TimeLapseSimulator.Device;
 
 namespace TimeLapseSimulator
@@ -13,13 +14,18 @@ namespace TimeLapseSimulator
     {
         private TimeLapseSimulator.Device.Device device;
 
+        private DBOperate dbOperate;
         public TimeLapseSimulator.Device.Device Device
         {
             set { this.device = value; }
         }
 
-        public delegate void SetWellColor(int slideID, int row, int col, Color backColor);
+        public DBOperate DBOperate
+        {
+            set { this.dbOperate = value; }
+        }
 
+        public delegate void SetWellColor(int slideID, int row, int col, Color backColor);
         public SetWellColor SetWellColorHandler;
 
         public delegate void AppendLog(string[] log);
@@ -59,14 +65,34 @@ namespace TimeLapseSimulator
                                     foreach (Focal focal in focals)
                                     {
                                         //1.拍照
-                                        Thread.Sleep(100);
-                                        //2.添加日志信息
-                                        if (AppendLogHandler != null)
-                                            AppendLogHandler(new string[] {
+                                        using (Bitmap bitmap = Camera.TakePicture(string.Format("{0}\\Images\\default.png", System.Environment.CurrentDirectory)))
+                                        {
+                                            Thread.Sleep(100);
+                                            //2.添加日志信息
+                                            if (AppendLogHandler != null)
+                                                AppendLogHandler(new string[] {
                                                 DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ms"),
                                                 slide.Name, cell.Name, focal.ID.ToString(),
-                                                "image file", "Success"});
-                                        //3.存数据库
+                                                string.Format("{0}\\Images\\default.png", System.Environment.CurrentDirectory), "Success"});
+                                            //3.存数据库
+                                            TSLide s = new TSLide();
+                                            s.SlideID = slide.ID;
+                                            s.SlideName = slide.Name;
+                                            s.CellID = cell.ID;
+                                            s.CellName = cell.Name;
+                                            s.FocalID = focal.ID;
+                                            s.FocalName = focal.ID.ToString();
+                                            s.Time = DateTime.Now;
+                                            s.Image = bitmap;
+                                            try
+                                            {
+                                                var v = dbOperate.QueryAllSlide();
+                                                dbOperate.ExecuteNonQuery(s);
+                                            }
+                                            catch (Exception ee)
+                                            {
+                                            }
+                                        }
                                     }
                                 }
                             }

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Ado持久层的模板文件，此文件应放置在 Config 目录下，并由App.Config去引用-->
+<objects xmlns="http://www.springframework.net"
+         xmlns:db="http://www.springframework.net/database">
+  <!--provider设置关联数据库，connection为连接字符串-->
+  <db:provider id="DbProvider"
+    provider="System.Data.SqlClient"
+    connectionString="Server=hqvdiw7x64-028;user id=john;password=Casco234;initial catalog=MyDB"/>
+
+  <object id="dbProvider" type="Summer.System.Data.SmrDbProvider, Summer.System">
+    <constructor-arg value="System.Data.SQLite"/>
+    <constructor-arg value="3d9bb15fada88e8b6f00e6a9817625a0011feaf3d2376b543603ac41cfcd2f1f1163fb3909b3400bd9ff9c707f06c3ea3349586d970f625104083528a15a5182cf182b9cf50c5679"/>
+  </object>
+  
+  <!--设置数据库转化器-->
+  <object id="convertor" type="Summer.System.Data.VarietyDb.SqlServerConvertor,Summer.System">
+    <!--type设置关联数据库类型，此例为Sql数据库-->
+    <property name="provider" ref="DbProvider"/>
+  </object>
+  
+  <!--设置adoTemplate，不需要改变-->
+  <object id="adoTemplate" type="Spring.Data.Generic.AdoTemplate, Spring.Data">
+    <property name="DbProvider" ref="DbProvider"/>
+  </object>
+
+
+  <!--设置每张表的Ado，注意左尖括号用'&lt'表示-->
+  <object id="userAdo" type="Summer.System.Data.SmrAdoTmplate&lt;TestDB.User>, Summer.System">
+    <property name="adoTmplte" ref="adoTemplate"/>
+    <property name="convertor" ref="convertor"/>
+  </object>
+  <!--以后设置某表的Ado，使用parent引用前表就行-->
+  <object id="roleAdo" type="Summer.System.Data.SmrAdoTmplate&lt;TestDB.Role>, Summer.System" parent="userAdo"/>
+
+</objects>
+

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--AOP配置文件模板，此文件应放置在 Config 目录下，文件名为aop.xml-->
+<spring>
+  <context>
+    <resource uri="config://spring/objects" />
+  </context>
+  <objects xmlns="http://www.springframework.net" xmlns:aop="http://www.springframework.net/aop">
+    <!--定义Advisor,包括指定Advice及Pointcut,id名称可自定义，type值保持不变-->
+    <object id="aroundAdvisor" type="Spring.Aop.Support.RegularExpressionMethodPointcutAdvisor, Spring.Aop">
+      <!--advice属性：ref指定需运行的通知-->
+      <property name="advice" ref="aroundAdvice"/>
+      <!--patterns属性：可新建多个value，每个value中使用正则表达式进行配置-->
+      <property name="patterns">
+        <list>
+          <value>.*Find*.*</value>
+        </list>
+      </property>
+    </object>
+
+    <!--必须让Spring.NET容器管理DefaultAdvisorAutoProxyCreator类,该行必需-->
+    <object id="ProxyCreator" type="Spring.Aop.Framework.AutoProxy.DefaultAdvisorAutoProxyCreator, Spring.Aop"/>
+
+    <!--实例化对象-->
+    <!--定义环绕通知，id为实例名称可自行定义，type为环绕通知类型（根据实际情况进行配置），该类需实现接口：IMethodInterceptor-->
+    <object id="aroundAdvice" type="CommonAdvise.AroundAdvise, CommonAdvise"/>
+    <!--定义前置通知，id为实例名称可自行定义，type为前置通知类型（根据实际情况进行配置），该类需实现接口：IMethodBeforeAdvice-->
+    <object id="beforeAdvice" type="CommonAdvise.BeforeAdvise, CommonAdvise"/>
+    <!--定义后置通知，id为实例名称可自行定义，type为后置通知类型（根据实际情况进行配置），该类需实现接口：IAfterReturningAdvice-->
+    <object id="afterAdvice" type="CommonAdvise.AfterReturningAdvise, CommonAdvise"/>
+    <!--定义异常通知，id为实例名称可自行定义，type为异常通知类型（根据实际情况进行配置），该类需实现接口：IThrowsAdvice-->
+    <object id="throwingAdvice" type="CommonAdvise.ThrowsAdvise, CommonAdvise"/>
+    <!--其他实例对象的创建，id为实例名称可自行定义，type为类名（根据实际情况进行配置）-->
+    <object id="categoryService" type="Service.CategoryService, Service"/>
+    <object id="productService" type="Service.ProductService, Service"/>
+    <!--......-->
+  </objects>
+</spring>

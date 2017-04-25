@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--UDP通信配置的模板文件，应用使用时修改IP地址或端口号，此文件应放置在 Config 目录下，并由App.Config去引用-->
+<net>
+<objects xmlns="http://www.springframework.net">
+  <!--UDPServer监听类，配置监听的端口号-->
+  <object id="udpRx" type="Summer.System.NET.UdpNetServer,Summer.System">
+    <constructor-arg value="6001"/>
+  </object>
+  <!--UDPClient发送类，配置远程IP地址和端口号-->
+   <object id="udpTx" type="Summer.System.NET.UdpNetClient,Summer.System">
+    <constructor-arg value="127.0.0.1"/>
+    <constructor-arg value="6001"/>
+  </object>
+  <!-- more object definitions for services go here -->
+</objects>
+</net>

@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CD89E930-B8EF-48AF-9EFE-D78EFB313C76}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Summer.System</RootNamespace>
+    <AssemblyName>Summer.System</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\System\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <RegisterForComInterop>false</RegisterForComInterop>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="iTextAsian, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\iTextAsian.dll</HintPath>
+    </Reference>
+    <Reference Include="iTextAsianCmaps, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\iTextAsianCmaps.dll</HintPath>
+    </Reference>
+    <Reference Include="iTextSharp, Version=4.1.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\iTextSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="Spring.Core, Version=2.0.0.40000, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>Lib\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.SQLite, Version=1.0.86.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Collections\AsynchQueueWorker.cs" />
+    <Compile Include="Collections\Concurrent\BlockingConcurrentQueue.cs" />
+    <Compile Include="Collections\Concurrent\ConcurrentHashTable.cs" />
+    <Compile Include="Collections\Concurrent\ConcurrentQueue.cs" />
+    <Compile Include="Collections\Helper.cs" />
+    <Compile Include="Core\IPipe.cs" />
+    <Compile Include="Core\SpringHelper.cs" />
+    <Compile Include="Data\DbPump\IDbPump.cs" />
+    <Compile Include="Data\DatabaseException.cs" />
+    <Compile Include="Data\DbMapping\FieldAttribute.cs" />
+    <Compile Include="Data\DbMapping\MappingHelper.cs" />
+    <Compile Include="Data\DbMapping\RowMapper.cs" />
+    <Compile Include="Data\DbMapping\TableAttribute.cs" />
+    <Compile Include="Data\DbPump\SqlPump.cs" />
+    <Compile Include="Data\SmrAdoTemplate.cs" />
+    <Compile Include="Data\DbPump\BaseDbPump.cs" />
+    <Compile Include="Data\SmrDbProvider.cs" />
+    <Compile Include="Data\TypeConversion\AssignConverter.cs" />
+    <Compile Include="Data\TypeConversion\DBConverterHelper.cs" />
+    <Compile Include="Data\TypeConversion\FloatConverter.cs" />
+    <Compile Include="Data\TypeConversion\IntConverter.cs" />
+    <Compile Include="Data\TypeConversion\StringConverter.cs" />
+    <Compile Include="Data\TypeConversion\DateTimeConverter.cs" />
+    <Compile Include="Data\TypeConversion\BoolConverter.cs" />
+    <Compile Include="Data\VarietyDb\ISqlConvertor.cs" />
+    <Compile Include="Data\VarietyDb\SqliteConvertor.cs" />
+    <Compile Include="Data\VarietyDb\SqlServerConvertor.cs" />
+    <Compile Include="IO\CSVFileHelper.cs" />
+    <Compile Include="IO\CSV\CSVFile.cs" />
+    <Compile Include="IO\ExcelReaderHelper.cs" />
+    <Compile Include="IO\ExcelWriterHelper.cs" />
+    <Compile Include="IO\IniFileHelper.cs" />
+    <Compile Include="IO\PDFHelper.cs" />
+    <Compile Include="IO\XmlFileHelper.cs" />
+    <Compile Include="IO\ZIP\IZipWorker.cs" />
+    <Compile Include="IO\ZIP\ZFile.cs" />
+    <Compile Include="IO\ZIP\BaseZip.cs" />
+    <Compile Include="Log\LogHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Log\SimpleLogger.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MVVM\ICommandExecutor.cs" />
+    <Compile Include="MVVM\MVVMHelper.cs" />
+    <Compile Include="MVVM\ViewModelBase.cs" />
+    <Compile Include="NET\Api.cs" />
+    <Compile Include="NET\BaseRemoteCtrl.cs" />
+    <Compile Include="NET\Filter\HeaderTailFilter.cs" />
+    <Compile Include="NET\Pump\TcpClientPp.cs" />
+    <Compile Include="NET\Pump\TcpListenerPump.cs" />
+    <Compile Include="NET\UdpNetClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NET\UdpNetServer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\Dynamic\DynamicConstructor.cs" />
+    <Compile Include="Reflection\Dynamic\DynamicField.cs" />
+    <Compile Include="Reflection\Dynamic\DynamicProperty.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\DESHelper.cs" />
+    <Compile Include="Threading\BackgroundThreadHelper.cs" />
+    <Compile Include="Util\ByteHelper.cs" />
+    <Compile Include="Threading\Latch.cs" />
+    <Compile Include="Util\ConvertHelper.cs" />
+    <Compile Include="Util\ExceptionHelper.cs" />
+    <Compile Include="Util\Fonts.cs" />
+    <Compile Include="Util\Matcher.cs" />
+    <Compile Include="Util\MathHelper.cs" />
+    <Compile Include="Util\MiniDump.cs" />
+    <Compile Include="Util\NetSetAnyIpep.cs" />
+    <Compile Include="Util\DbHelper.cs" />
+    <Compile Include="Util\NullHelper.cs" />
+    <Compile Include="Util\RegistryHelper.cs" />
+    <Compile Include="Util\StreamAnalyser\Function\ArithFunc.cs" />
+    <Compile Include="Util\StreamAnalyser\Function\EnumFunc.cs" />
+    <Compile Include="Util\StreamAnalyser\Function\ExpressionFunc.cs" />
+    <Compile Include="Util\StreamAnalyser\Function\StringFormatFunc.cs" />
+    <Compile Include="Util\StreamAnalyser\Interpreter\InterpreterException.cs" />
+    <Compile Include="Util\StreamAnalyser\Interpreter\InterpreterPosition.cs" />
+    <Compile Include="Util\StreamAnalyser\Interpreter\InterpretLog.cs" />
+    <Compile Include="Util\StreamAnalyser\Interpreter\TermBitInterpreter.cs" />
+    <Compile Include="Util\StreamAnalyser\Interpreter\TermBytesInterpreter.cs" />
+    <Compile Include="Util\StreamAnalyser\Interpreter\TermInterpreter.cs" />
+    <Compile Include="Util\StreamAnalyser\Interpreter\TermNoneInterpreter.cs" />
+    <Compile Include="Util\StreamAnalyser\Interpreter\TermNumInterpreter.cs" />
+    <Compile Include="Util\StreamAnalyser\Interpreter\TermSignedInterpreter.cs" />
+    <Compile Include="Util\StreamAnalyser\Interpreter\TermStrInterpreter.cs" />
+    <Compile Include="Util\StreamAnalyser\Message\MessageStream.cs" />
+    <Compile Include="Util\StreamAnalyser\Message\MessageTerm.cs" />
+    <Compile Include="Util\StreamAnalyser\Message\MessageTermComplex.cs" />
+    <Compile Include="Util\StreamAnalyser\Message\MessageTermSlot.cs" />
+    <Compile Include="Util\StreamAnalyser\Message\MsgHelper.cs" />
+    <Compile Include="Util\StreamAnalyser\Protocal\InterpretOpion.cs" />
+    <Compile Include="Util\StreamAnalyser\Protocal\ProtocalDesigner.cs" />
+    <Compile Include="Util\StreamAnalyser\Protocal\ProtocalTerm.cs" />
+    <Compile Include="Util\StreamAnalyser\Protocal\ProtocalTermChoice.cs" />
+    <Compile Include="Util\StreamAnalyser\Protocal\ProtocalTermComplex.cs" />
+    <Compile Include="Util\StreamAnalyser\Protocal\ProtocalTermFrame.cs" />
+    <Compile Include="Util\StreamAnalyser\Protocal\ProtocalTermFramer.cs" />
+    <Compile Include="Util\StreamAnalyser\Protocal\ProtocalTermList.cs" />
+    <Compile Include="Util\StreamAnalyser\Protocal\ProtocalTermSequence.cs" />
+    <Compile Include="Util\StreamAnalyser\Protocal\ProtocalTermSimple.cs" />
+    <Compile Include="Util\StreamAnalyser\Value\TermValue.cs" />
+    <Compile Include="Util\StreamAnalyser\Value\TermValueExpression.cs" />
+    <Compile Include="Util\StreamAnalyser\Value\TermValueRef.cs" />
+    <Compile Include="Security\CRC32.cs" />
+    <Compile Include="Util\StreamCreator\MessageConfig.cs" />
+    <Compile Include="Util\StreamCreator\MessageContent.cs" />
+    <Compile Include="Util\StreamCreator\MessageCreator.cs" />
+    <Compile Include="Util\StreamCreator\ValueConvertor.cs" />
+    <Compile Include="Util\Type\EventIndicator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Collections\Concurrent\Nothing.txt" />
+    <Content Include="Config\ado.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\ioc.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\log4net.xml" />
+    <Content Include="Config\net.xml" />
+    <Content Include="Config\aop.xml" />
+    <Content Include="Lib\C5.dll" />
+    <Content Include="Lib\Common.Logging.dll" />
+    <Content Include="Lib\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="Lib\Ionic.Zip.dll" />
+    <Content Include="Lib\iTextAsian.dll" />
+    <Content Include="Lib\iTextAsianCmaps.dll" />
+    <Content Include="Lib\iTextSharp.dll" />
+    <Content Include="Lib\log4net.dll" />
+    <Content Include="Lib\log4net.xml" />
+    <Content Include="Lib\NPOI.dll" />
+    <Content Include="Lib\Quartz.dll" />
+    <Content Include="Lib\Quartz.xml" />
+    <Content Include="Lib\Spring.Aop.dll" />
+    <Content Include="Lib\Spring.Aop.pdb" />
+    <Content Include="Lib\Spring.Aop.xml" />
+    <Content Include="Lib\Spring.Core.dll" />
+    <Content Include="Lib\Spring.Core.pdb" />
+    <Content Include="Lib\Spring.Core.xml" />
+    <Content Include="Lib\Spring.Data.dll" />
+    <Content Include="Lib\Spring.Data.NHibernate32.dll" />
+    <Content Include="Lib\Spring.Data.NHibernate32.Integration.Tests.dll" />
+    <Content Include="Lib\Spring.Data.NHibernate32.Integration.Tests.pdb" />
+    <Content Include="Lib\Spring.Data.NHibernate32.Integration.Tests.xml" />
+    <Content Include="Lib\Spring.Data.NHibernate32.pdb" />
+    <Content Include="Lib\Spring.Data.NHibernate32.Tests.dll" />
+    <Content Include="Lib\Spring.Data.NHibernate32.Tests.dll-TestResults.xml" />
+    <Content Include="Lib\Spring.Data.NHibernate32.Tests.pdb" />
+    <Content Include="Lib\Spring.Data.NHibernate32.Tests.xml" />
+    <Content Include="Lib\Spring.Data.NHibernate32.xml" />
+    <Content Include="Lib\Spring.Data.NHibernate33.dll" />
+    <Content Include="Lib\Spring.Data.NHibernate33.Integration.Tests.dll" />
+    <Content Include="Lib\Spring.Data.NHibernate33.Integration.Tests.pdb" />
+    <Content Include="Lib\Spring.Data.NHibernate33.Integration.Tests.xml" />
+    <Content Include="Lib\Spring.Data.NHibernate33.pdb" />
+    <Content Include="Lib\Spring.Data.NHibernate33.Tests.dll" />
+    <Content Include="Lib\Spring.Data.NHibernate33.Tests.dll-TestResults.xml" />
+    <Content Include="Lib\Spring.Data.NHibernate33.Tests.pdb" />
+    <Content Include="Lib\Spring.Data.NHibernate33.Tests.xml" />
+    <Content Include="Lib\Spring.Data.NHibernate33.xml" />
+    <Content Include="Lib\Spring.Data.pdb" />
+    <Content Include="Lib\Spring.Data.xml" />
+    <Content Include="Lib\Spring.Messaging.dll" />
+    <Content Include="Lib\Spring.Messaging.Ems.dll" />
+    <Content Include="Lib\Spring.Messaging.Ems.pdb" />
+    <Content Include="Lib\Spring.Messaging.Ems.xml" />
+    <Content Include="Lib\Spring.Messaging.Nms.dll" />
+    <Content Include="Lib\Spring.Messaging.Nms.pdb" />
+    <Content Include="Lib\Spring.Messaging.Nms.xml" />
+    <Content Include="Lib\Spring.Messaging.pdb" />
+    <Content Include="Lib\Spring.Messaging.xml" />
+    <Content Include="Lib\Spring.Scheduling.Quartz20.dll" />
+    <Content Include="Lib\Spring.Scheduling.Quartz20.pdb" />
+    <Content Include="Lib\Spring.Scheduling.Quartz20.xml" />
+    <Content Include="Lib\Spring.Services.dll" />
+    <Content Include="Lib\Spring.Services.pdb" />
+    <Content Include="Lib\Spring.Services.xml" />
+    <Content Include="Lib\Spring.Template.Velocity.dll" />
+    <Content Include="Lib\Spring.Template.Velocity.pdb" />
+    <Content Include="Lib\Spring.Template.Velocity.xml" />
+    <Content Include="Lib\Spring.Testing.Microsoft.dll" />
+    <Content Include="Lib\Spring.Testing.Microsoft.pdb" />
+    <Content Include="Lib\Spring.Testing.Microsoft.xml" />
+    <Content Include="Lib\Spring.Testing.NUnit.dll" />
+    <Content Include="Lib\Spring.Testing.NUnit.pdb" />
+    <Content Include="Lib\Spring.Testing.NUnit.xml" />
+    <Content Include="Lib\Spring.Web.dll" />
+    <Content Include="Lib\Spring.Web.Extensions.dll" />
+    <Content Include="Lib\Spring.Web.Extensions.pdb" />
+    <Content Include="Lib\Spring.Web.Extensions.xml" />
+    <Content Include="Lib\Spring.Web.Mvc.dll" />
+    <Content Include="Lib\Spring.Web.Mvc.pdb" />
+    <Content Include="Lib\Spring.Web.Mvc.xml" />
+    <Content Include="Lib\Spring.Web.Mvc3.dll" />
+    <Content Include="Lib\Spring.Web.Mvc3.pdb" />
+    <Content Include="Lib\Spring.Web.Mvc3.xml" />
+    <Content Include="Lib\Spring.Web.Mvc4.dll" />
+    <Content Include="Lib\Spring.Web.Mvc4.pdb" />
+    <Content Include="Lib\Spring.Web.Mvc4.xml" />
+    <Content Include="Lib\Spring.Web.pdb" />
+    <Content Include="Lib\Spring.Web.xml" />
+    <Content Include="Lib\SuperSocket.SocketBase.dll" />
+    <Content Include="Lib\System.Data.SQLite.dll" />
+    <Content Include="Lib\System.Data.SQLite.Linq.dll" />
+    <Content Include="Util\StreamCreator\message_content.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

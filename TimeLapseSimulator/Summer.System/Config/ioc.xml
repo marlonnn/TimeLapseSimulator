@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--复制此文档各种Ioc定义方式到需要的地方-->
+<objects xmlns="http://www.springframework.net">
+  <!-- 设有class GenericClass<T>如下方式配置泛型类-->
+  <!--  注意：左尖括号’<’需用’&lt;’代替，在xml中’<’会被认为是小于号-->
+  <object id="MyGeneric" type="Tutorial.GenericClass&lt;int>, ConsoleApplication1" />
+
+  <object name="xxx" type="xxx">
+    <!--构造函数如下，如果没有配置，则调用默认构造函数-->
+    <constructor-arg name="xxx" value="xxx"/>
+    <constructor-arg name="xxx" ref="xxx"/>
+    <!--属性-->
+    <property name="xxxx" ref="kkk"/>
+    <!--空集合-->
+    <property name="tool1">
+      <null />
+    </property>
+    <!--IList类型-->
+    <property name="tool2">
+      <list>
+        <value>xxxx</value>
+        <ref object="MyTool" />
+      </list>
+    </property>
+    <!--IList<int> //泛型集合-->
+    <property name="tool2">
+      <list element-type="int">
+        <value>1</value>
+        <value>2</value>
+      </list>
+    </property>
+    <!--Dictionary-->
+    <property name="tool1">
+      <dictionary key-type="string" value-type="object">
+        <entry key="haha1" value="Good morning"/>
+        <entry key="haha2" value-ref="myType" />
+      </dictionary>
+    </property>
+
+  </object>
+</objects>

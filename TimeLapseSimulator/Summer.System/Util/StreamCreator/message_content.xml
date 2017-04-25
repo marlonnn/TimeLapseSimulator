@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<message_content>
+  <frame name="Main">
+    <term name="MSGID"  value="0x7d4f" bitlength="8"/>
+    <term name="RESERVED" value="0x33"/>
+    <term name="DATETIME" value="">
+      <term name="YEAR" value="1"/>
+      <term name="MONTH" value="2"/>
+      <term name="DAY" value="2"/>
+      <term name="HOUR" value="2"/>
+      <term name="MIN" value="2"/>
+      <term name="SEC" value="2"/>
+      <term name="MSEC" value="2"/>
+    </term>
+    <term name="TOTALDISTANCE" value=""/>
+    <term name="LOCALCLOCK" vlaue=""/>
+    <term name="RECORD" >
+      
+    </term>
+  </frame>
+</message_content>

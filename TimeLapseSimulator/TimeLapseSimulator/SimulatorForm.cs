@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TimeLapseSimulator.DataBase.ADO;
 using TimeLapseSimulator.UI;
 
 namespace TimeLapseSimulator
@@ -17,6 +18,8 @@ namespace TimeLapseSimulator
         private TimeLapseSimulator.Device.Device device;
         private OperationFactory operationFactory;
         private Thread OperationThread;
+        private DBOperate dbOperate;
+
         public SimulatorForm()
         {
             InitializeComponent();
@@ -73,6 +76,7 @@ namespace TimeLapseSimulator
         private void SimulatorForm_Load(object sender, EventArgs e)
         {
             operationFactory.Device = device;
+            operationFactory.DBOperate = dbOperate;
             OperationThread.Start();
         }
     }
