@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -65,34 +66,17 @@ namespace TimeLapseSimulator
                                     foreach (Focal focal in focals)
                                     {
                                         //1.拍照
-                                        using (Bitmap bitmap = Camera.TakePicture(string.Format("{0}\\Images\\default.png", System.Environment.CurrentDirectory)))
-                                        {
-                                            Thread.Sleep(100);
-                                            //2.添加日志信息
-                                            if (AppendLogHandler != null)
-                                                AppendLogHandler(new string[] {
+                                        byte[] image = Camera.ImageToByteArray(string.Format("{0}\\Images\\default.png", System.Environment.CurrentDirectory));
+                                        Thread.Sleep(100);
+                                        //2.添加日志信息
+                                        if (AppendLogHandler != null)
+                                            AppendLogHandler(new string[] {
                                                 DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ms"),
                                                 slide.Name, cell.Name, focal.ID.ToString(),
                                                 string.Format("{0}\\Images\\default.png", System.Environment.CurrentDirectory), "Success"});
-                                            //3.存数据库
-                                            TSLide s = new TSLide();
-                                            s.SlideID = slide.ID;
-                                            s.SlideName = slide.Name;
-                                            s.CellID = cell.ID;
-                                            s.CellName = cell.Name;
-                                            s.FocalID = focal.ID;
-                                            s.FocalName = focal.ID.ToString();
-                                            s.Time = DateTime.Now;
-                                            s.Image = bitmap;
-                                            try
-                                            {
-                                                var v = dbOperate.QueryAllSlide();
-                                                dbOperate.ExecuteNonQuery(s);
-                                            }
-                                            catch (Exception ee)
-                                            {
-                                            }
-                                        }
+                                        //3.存数据库
+                                        TSLide s = CreateTSlide(slide, cell, focal, image);
+                                        dbOperate.ExecuteNonQuery(s);
                                     }
                                 }
                             }
@@ -100,6 +84,29 @@ namespace TimeLapseSimulator
                     }
                 }
             }
+        }
+
+
+        private TSLide CreateTSlide(Slide slide, Cell cell, Focal focal, byte[] image)
+        {
+            TSLide s = new TSLide();
+            s.SlideID = slide.ID;
+            s.SlideName = slide.Name;
+            s.CellID = cell.ID;
+            s.CellName = cell.Name;
+            s.FocalID = focal.ID;
+            s.FocalName = focal.ID.ToString();
+            s.Time = DateTime.Now;
+            s.Image = image;
+            return s;
+        }
+
+        public Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
+
         }
     }
 }

@@ -15,11 +15,37 @@ namespace TimeLapseSimulator.Device
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public static Bitmap TakePicture(string path)
+        //public static Bitmap TakePicture(string path)
+        //{
+        //    return ReadImageFile(path);
+        //}
+
+        public static byte[] TakePicture(string path)
         {
-            return ReadImageFile(path);
+            FileStream fs = File.OpenRead(path); //OpenRead
+            int filelength = 0;
+            filelength = (int)fs.Length; //获得文件长度 
+            byte[] image = new byte[filelength]; //建立一个字节数组 
+            fs.Read(image, 0, filelength); //按字节流读取
+            fs.Close();
+            return image;
         }
 
+        public static byte[] ImageToByteArray(string path)
+        {
+            Image imageIn = ReadImageFile(path);
+            MemoryStream ms = new MemoryStream();
+            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+            return ms.ToArray();
+        }
+
+        public static Image ByteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
+
+        }
         /// <summary>
         /// 通过FileStream 来打开文件，这样就可以实现不锁定Image文件，到时可以让多用户同时访问Image文件
         /// </summary>

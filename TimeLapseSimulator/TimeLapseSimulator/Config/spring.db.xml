@@ -10,13 +10,13 @@
     <property name="DbProvider" ref="dbProvider"/>
   </object>
 
-  <object id="sqliteConvertor" type="Summer.System.Data.VarietyDb.SqliteConvertor, Summer.System">
+  <object id="mySqlConvertor" type="Summer.System.Data.VarietyDb.MySqlConvertor, Summer.System">
     <property name="provider" ref="dbProvider"/>
   </object>
   
   <object id="slideADO" type="TimeLapseSimulator.DataBase.ADO.SlideADO, TimeLapseSimulator">
     <property name="adoTmplte" ref="adoTemplate"/>
-    <property name="convertor" ref="sqliteConvertor"/>
+    <property name="convertor" ref="mySqlConvertor"/>
   </object>
   
   <object id="dbOperate" type="TimeLapseSimulator.DataBase.ADO.DBOperate, TimeLapseSimulator">

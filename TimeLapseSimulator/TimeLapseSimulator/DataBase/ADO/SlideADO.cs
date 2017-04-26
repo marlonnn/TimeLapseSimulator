@@ -38,6 +38,6 @@ namespace TimeLapseSimulator.DataBase.ADO
         public DateTime Time;
 
         [FieldAttribute("Image")]
-        public Bitmap Image;
+        public byte[] Image;
     }
 }
