@@ -29,8 +29,29 @@ namespace TimeLapseSimulator
         public delegate void SetWellColor(int slideID, int row, int col, Color backColor);
         public SetWellColor SetWellColorHandler;
 
+        public delegate void ClearWellColor();
+        public ClearWellColor ClearWellColorHandler;
+
         public delegate void AppendLog(string[] log);
         public AppendLog AppendLogHandler;
+
+        public delegate void Flash(int slideID);
+        public Flash FlashHandler;
+
+        private bool execute = false;
+
+        public bool Execute
+        {
+            get { return this.execute; }
+            set { this.execute = value; }
+        }
+
+        private void FlashSlide(int slideID)
+        {
+            if (FlashHandler != null)
+                FlashHandler(slideID);
+        }
+
         public void ExecuteInternal()
         {
             if (device != null)
@@ -39,44 +60,53 @@ namespace TimeLapseSimulator
                 if (Slides != null && Slides.Count > 0)
                 {
                     //每个培养皿
-                    foreach (Slide slide in Slides)
+                    while (Execute)
                     {
-                        //TO DO
-                        //移动到培养皿对应的坐标位置
-                        //...
-                        List<Cell> cells = slide.Cells;
-                        if (cells != null && cells.Count > 0)
+                        if (ClearWellColorHandler != null)
+                            ClearWellColorHandler();
+                        for (int i =0; i< Slides.Count; i++)
                         {
-                            //每个胚胎细胞
-                            foreach (Cell cell in cells)
+                            Slide slide = Slides[i];
+                            //TO DO
+                            //移动到培养皿对应的坐标位置
+                            //...
+                            FlashSlide(slide.ID);
+                            //闪烁当前Slide
+
+                            List<Cell> cells = slide.Cells;
+                            if (cells != null && cells.Count > 0)
                             {
-                                //TO DO 
-                                //移动到每个胚胎细胞对应的坐标位置
-                                //...
-                                if (SetWellColorHandler != null)
-                                    SetWellColorHandler(slide.ID, 
-                                        cell.Position.Row - 1, cell.Position.Column - 1, Color.DarkGreen);
-                                List<Focal> focals = cell.Focals;
-                                if (focals != null && focals.Count > 0)
+                                //每个胚胎细胞
+                                foreach (Cell cell in cells)
                                 {
-                                    //TO DO
-                                    //移动到每个焦平面对应的坐标位置
+                                    //TO DO 
+                                    //移动到每个胚胎细胞对应的坐标位置
                                     //...
-                                    //每个焦平面
-                                    foreach (Focal focal in focals)
+                                    if (SetWellColorHandler != null)
+                                        SetWellColorHandler(slide.ID,
+                                            cell.Position.Row - 1, cell.Position.Column - 1, Color.DarkGreen);
+                                    List<Focal> focals = cell.Focals;
+                                    if (focals != null && focals.Count > 0)
                                     {
-                                        //1.拍照
-                                        byte[] image = Camera.ImageToByteArray(string.Format("{0}\\Images\\default.png", System.Environment.CurrentDirectory));
-                                        Thread.Sleep(100);
-                                        //2.添加日志信息
-                                        if (AppendLogHandler != null)
-                                            AppendLogHandler(new string[] {
+                                        //TO DO
+                                        //移动到每个焦平面对应的坐标位置
+                                        //...
+                                        //每个焦平面
+                                        foreach (Focal focal in focals)
+                                        {
+                                            //1.拍照
+                                            byte[] image = Camera.ImageToByteArray(string.Format("{0}\\Images\\default.png", System.Environment.CurrentDirectory));
+                                            Thread.Sleep(10);
+                                            //2.添加日志信息
+                                            if (AppendLogHandler != null)
+                                                AppendLogHandler(new string[] {
                                                 DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ms"),
                                                 slide.Name, cell.Name, focal.ID.ToString(),
                                                 string.Format("{0}\\Images\\default.png", System.Environment.CurrentDirectory), "Success"});
-                                        //3.存数据库
-                                        TSLide s = CreateTSlide(slide, cell, focal, image);
-                                        dbOperate.ExecuteNonQuery(s);
+                                            //3.存数据库
+                                            //TSLide s = CreateTSlide(slide, cell, focal, image);
+                                            //dbOperate.ExecuteNonQuery(s);
+                                        }
                                     }
                                 }
                             }

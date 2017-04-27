@@ -29,12 +29,42 @@ namespace TimeLapseSimulator
             operationFactory = new OperationFactory();
             operationFactory.AppendLogHandler += AppendLogHandler;
             operationFactory.SetWellColorHandler += SetWellColorHandler;
+            operationFactory.ClearWellColorHandler += ClearWellColorHandler;
+            operationFactory.FlashHandler += FlashHandler;
             OperationThread = new Thread(new ThreadStart(operationFactory.ExecuteInternal));
+        }
+
+        private void ClearWellColorHandler()
+        {
+            this.slideCtrl1.ClearColor();
+            this.slideCtrl2.ClearColor();
+            this.slideCtrl3.ClearColor();
+            this.slideCtrl4.ClearColor();
+        }
+
+        private void FlashHandler(int slideID)
+        {
+            foreach (var ctrl in this.Controls)
+            {
+                SlideCtrl sc = ctrl as SlideCtrl;
+                if (sc != null)
+                {
+                    if (sc.ID == slideID)
+                    {
+                        sc.Flashing = true;
+                    }
+                    else
+                    {
+                        sc.Flashing = false;
+                    }
+                }
+            }
         }
 
         private void SimulatorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.LogViewTimer.Stop();
+            operationFactory.Execute = false;
             OperationThread.Abort();
         }
 
@@ -77,6 +107,7 @@ namespace TimeLapseSimulator
         {
             operationFactory.Device = device;
             operationFactory.DBOperate = dbOperate;
+            operationFactory.Execute = true;
             OperationThread.Start();
         }
     }

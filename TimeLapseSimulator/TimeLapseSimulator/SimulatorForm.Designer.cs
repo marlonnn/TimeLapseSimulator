@@ -49,39 +49,39 @@
             // 
             // slideCtrl4
             // 
-            this.slideCtrl4.Location = new System.Drawing.Point(511, 12);
+            this.slideCtrl4.ID = 4;
+            this.slideCtrl4.Location = new System.Drawing.Point(511, 13);
             this.slideCtrl4.Name = "slideCtrl4";
-            this.slideCtrl4.Size = new System.Drawing.Size(100, 180);
+            this.slideCtrl4.Size = new System.Drawing.Size(100, 195);
             this.slideCtrl4.SlideName = "Slide 4";
             this.slideCtrl4.TabIndex = 6;
-            this.slideCtrl4.ID = 4;
             // 
             // slideCtrl3
             // 
-            this.slideCtrl3.Location = new System.Drawing.Point(357, 12);
+            this.slideCtrl3.ID = 3;
+            this.slideCtrl3.Location = new System.Drawing.Point(357, 13);
             this.slideCtrl3.Name = "slideCtrl3";
-            this.slideCtrl3.Size = new System.Drawing.Size(100, 180);
+            this.slideCtrl3.Size = new System.Drawing.Size(100, 195);
             this.slideCtrl3.SlideName = "Slide 3";
             this.slideCtrl3.TabIndex = 5;
-            this.slideCtrl3.ID = 3;
             // 
             // slideCtrl2
             // 
-            this.slideCtrl2.Location = new System.Drawing.Point(203, 12);
+            this.slideCtrl2.ID = 2;
+            this.slideCtrl2.Location = new System.Drawing.Point(203, 13);
             this.slideCtrl2.Name = "slideCtrl2";
-            this.slideCtrl2.Size = new System.Drawing.Size(100, 180);
+            this.slideCtrl2.Size = new System.Drawing.Size(100, 195);
             this.slideCtrl2.SlideName = "Slide 2";
             this.slideCtrl2.TabIndex = 4;
-            this.slideCtrl2.ID = 2;
             // 
             // slideCtrl1
             // 
-            this.slideCtrl1.Location = new System.Drawing.Point(47, 12);
+            this.slideCtrl1.ID = 1;
+            this.slideCtrl1.Location = new System.Drawing.Point(47, 13);
             this.slideCtrl1.Name = "slideCtrl1";
-            this.slideCtrl1.Size = new System.Drawing.Size(100, 180);
+            this.slideCtrl1.Size = new System.Drawing.Size(100, 195);
             this.slideCtrl1.SlideName = "Slide 1";
             this.slideCtrl1.TabIndex = 3;
-            this.slideCtrl1.ID = 1;
             // 
             // logListView
             // 
@@ -96,12 +96,12 @@
             this.logListView.GridLines = true;
             this.logListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.logListView.HideSelection = false;
-            this.logListView.Location = new System.Drawing.Point(12, 207);
+            this.logListView.Location = new System.Drawing.Point(12, 224);
             this.logListView.MaxLogRecords = 300;
             this.logListView.MultiSelect = false;
             this.logListView.Name = "logListView";
             this.logListView.ShowGroups = false;
-            this.logListView.Size = new System.Drawing.Size(657, 262);
+            this.logListView.Size = new System.Drawing.Size(657, 284);
             this.logListView.TabIndex = 2;
             this.logListView.Timer = null;
             this.logListView.UseCompatibleStateImageBehavior = false;
@@ -137,9 +137,9 @@
             // 
             // SimulatorForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(681, 479);
+            this.ClientSize = new System.Drawing.Size(681, 519);
             this.Controls.Add(this.slideCtrl4);
             this.Controls.Add(this.slideCtrl3);
             this.Controls.Add(this.slideCtrl2);
