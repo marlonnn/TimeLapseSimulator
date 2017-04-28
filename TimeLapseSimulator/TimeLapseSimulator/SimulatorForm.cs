@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Summer.System.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,12 +27,22 @@ namespace TimeLapseSimulator
             InitializeTimer();
             this.Load += SimulatorForm_Load;
             this.FormClosing += SimulatorForm_FormClosing;
+            this.KeyDown += SimulatorForm_KeyDown;
             operationFactory = new OperationFactory();
             operationFactory.AppendLogHandler += AppendLogHandler;
             operationFactory.SetWellColorHandler += SetWellColorHandler;
             operationFactory.ClearWellColorHandler += ClearWellColorHandler;
             operationFactory.FlashHandler += FlashHandler;
             OperationThread = new Thread(new ThreadStart(operationFactory.ExecuteInternal));
+        }
+
+        private void SimulatorForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control == true && e.KeyCode == Keys.F5)
+            {
+                DatabaseForm databaseForm = SpringHelper.GetObject<DatabaseForm>("dbForm");
+                databaseForm.ShowDialog();
+            }
         }
 
         private void ClearWellColorHandler()

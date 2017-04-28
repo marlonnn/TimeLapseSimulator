@@ -121,6 +121,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Database Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Database Form.Designer.cs">
+      <DependentUpon>Database Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\LogListView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -152,6 +158,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\Database Form.resx">
+      <DependentUpon>Database Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\SlideCtrl.resx">
       <DependentUpon>SlideCtrl.cs</DependentUpon>
     </EmbeddedResource>

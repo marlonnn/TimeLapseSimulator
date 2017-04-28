@@ -49,6 +49,8 @@
             // 
             // slideCtrl4
             // 
+            this.slideCtrl4.Flashing = false;
+            this.slideCtrl4.FlickCount = 5;
             this.slideCtrl4.ID = 4;
             this.slideCtrl4.Location = new System.Drawing.Point(511, 13);
             this.slideCtrl4.Name = "slideCtrl4";
@@ -58,6 +60,8 @@
             // 
             // slideCtrl3
             // 
+            this.slideCtrl3.Flashing = false;
+            this.slideCtrl3.FlickCount = 5;
             this.slideCtrl3.ID = 3;
             this.slideCtrl3.Location = new System.Drawing.Point(357, 13);
             this.slideCtrl3.Name = "slideCtrl3";
@@ -67,6 +71,8 @@
             // 
             // slideCtrl2
             // 
+            this.slideCtrl2.Flashing = false;
+            this.slideCtrl2.FlickCount = 5;
             this.slideCtrl2.ID = 2;
             this.slideCtrl2.Location = new System.Drawing.Point(203, 13);
             this.slideCtrl2.Name = "slideCtrl2";
@@ -76,6 +82,8 @@
             // 
             // slideCtrl1
             // 
+            this.slideCtrl1.Flashing = false;
+            this.slideCtrl1.FlickCount = 5;
             this.slideCtrl1.ID = 1;
             this.slideCtrl1.Location = new System.Drawing.Point(47, 13);
             this.slideCtrl1.Name = "slideCtrl1";
@@ -145,6 +153,9 @@
             this.Controls.Add(this.slideCtrl2);
             this.Controls.Add(this.slideCtrl1);
             this.Controls.Add(this.logListView);
+            this.DoubleBuffered = true;
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "SimulatorForm";
             this.Text = "Simulator Form";
             this.ResumeLayout(false);

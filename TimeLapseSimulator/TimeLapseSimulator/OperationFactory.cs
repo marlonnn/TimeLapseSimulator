@@ -96,7 +96,7 @@ namespace TimeLapseSimulator
                                         {
                                             //1.拍照
                                             byte[] image = Camera.ImageToByteArray(string.Format("{0}\\Images\\default.png", System.Environment.CurrentDirectory));
-                                            Thread.Sleep(10);
+                                            Thread.Sleep(100);
                                             //2.添加日志信息
                                             if (AppendLogHandler != null)
                                                 AppendLogHandler(new string[] {
