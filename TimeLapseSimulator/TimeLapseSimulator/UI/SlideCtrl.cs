@@ -29,50 +29,75 @@ namespace TimeLapseSimulator.UI
             }
             set
             {
-                if (value != slideName)
-                {
-                    slideName = value;
-                    this.Invalidate();
-                    InvokeInvalidate(value);
-                }
+                slideName = value;
             }
         }
 
-        /// <summary>
-        /// invoke change slide name
-        /// </summary>
-        /// <param name="value"></param>
-        private void InvokeInvalidate(string value)
+        //private Timer FlashTimer;
+
+        private int flickCount;
+
+        public int FlickCount
         {
-            if (!IsHandleCreated)
-                return;
-            try
-            {
-                this.Invoke(
-                    (MethodInvoker)delegate 
-                    {
-                        SlideName = value;
-                        this.lblName.Text = SlideName;
-                    });
-            }
-            catch { }
+            get { return this.flickCount; }
+            set { this.flickCount = value; }
         }
+        private bool flashing;
+        public bool Flashing
+        {
+            get { return this.flashing; }
+            set
+            {
+                if (value != this.flashing)
+                {
+                    flickCount = 0;
+                    this.flashing = value;
+                    this.Invalidate();
+                }
+
+            }
+        }
+
         public SlideCtrl()
         {
             InitializeComponent();
             this.Load += SlideCtrl_Load;
         }
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            flickCount++;
+            if (Flashing)
+            {
+                FlickerColor(flickCount);
+            }
+            else
+            {
+                FlickerColor(0);
+            }
+        }
 
         private void SlideCtrl_Load(object sender, EventArgs e)
         {
             this.Width = this.plate.Width;
-            this.Height = this.plate.Height + 30;
+            this.Height = this.plate.Height + 45;
             this.lblName.Text = SlideName;
         }
 
         public void SetWellColor(int row, int col, Color backColor)
         {
             this.plate.SetWellColor(row, col, backColor);
+        }
+
+        public void ClearColor()
+        {
+            this.plate.ClearWellColor();
+        }
+
+        public void FlickerColor(int cycle)
+        {
+            this.lblName.ForeColor = cycle % 2 == 0 ? this.ForeColor : Color.Red;
+            this.lblName.Invalidate();
         }
     }
 }

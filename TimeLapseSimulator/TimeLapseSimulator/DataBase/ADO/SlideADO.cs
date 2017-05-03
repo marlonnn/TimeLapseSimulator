@@ -11,6 +11,7 @@ namespace TimeLapseSimulator.DataBase.ADO
 {
     public class SlideADO : SmrAdoTmplate<TSLide>
     {
+
     }
 
     [TableAttribute("Slide")]

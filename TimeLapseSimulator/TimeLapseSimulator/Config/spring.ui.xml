@@ -5,6 +5,10 @@
   <object name="simulatorForm" type="TimeLapseSimulator.SimulatorForm, TimeLapseSimulator">
     <property name="device" ref="device"/>
     <property name="dbOperate" ref="dbOperate"/>
+  </object>
 
+  <object name="dbForm" type="TimeLapseSimulator.UI.DatabaseForm, TimeLapseSimulator"
+          singleton="false">
+    <property name="dbOperate" ref="dbOperate"/>
   </object>
 </objects>

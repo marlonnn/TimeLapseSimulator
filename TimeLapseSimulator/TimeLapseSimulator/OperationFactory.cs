@@ -39,23 +39,50 @@ namespace TimeLapseSimulator
         public delegate void SetWellColor(int slideID, int row, int col, Color backColor);
         public SetWellColor SetWellColorHandler;
 
+        public delegate void ClearWellColor();
+        public ClearWellColor ClearWellColorHandler;
+
         public delegate void AppendLog(string[] log);
         public AppendLog AppendLogHandler;
+
+        public delegate void Flash(int slideID);
+        public Flash FlashHandler;
+
+        private bool execute = false;
+
+        public bool Execute
+        {
+            get { return this.execute; }
+            set { this.execute = value; }
+        }
+
+        private void FlashSlide(int slideID)
+        {
+            if (FlashHandler != null)
+                FlashHandler(slideID);
+        }
+
         public void ExecuteInternal()
         {
-            while (ThreadRun)
+            if (device != null)
             {
-                if (device != null)
+                List<Slide> Slides = device.Slides;
+                if (Slides != null && Slides.Count > 0)
                 {
-                    List<Slide> Slides = device.Slides;
-                    if (Slides != null && Slides.Count > 0)
+                    //每个培养皿
+                    while (Execute)
                     {
-                        //每个培养皿
-                        foreach (Slide slide in Slides)
+                        if (ClearWellColorHandler != null)
+                            ClearWellColorHandler();
+                        for (int i =0; i< Slides.Count; i++)
                         {
+                            Slide slide = Slides[i];
                             //TO DO
                             //移动到培养皿对应的坐标位置
                             //...
+                            FlashSlide(slide.ID);
+                            //闪烁当前Slide
+
                             List<Cell> cells = slide.Cells;
                             if (cells != null && cells.Count > 0)
                             {

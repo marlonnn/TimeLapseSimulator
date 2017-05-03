@@ -382,5 +382,16 @@ namespace TimeLapseSimulator.UI
             wellvalues[row, col].BackColor = backColor;
             Draw(this.grid[col, row]);
         }
+
+        public void ClearWellColor()
+        {
+            for (int i=0; i< PlateRows; i++)
+            {
+                for (int j = 0; j < PlateColumns; j++)
+                {
+                    SetWellColor(i, j, Color.White);
+                }
+            }
+        }
     }
 }
