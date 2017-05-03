@@ -20,6 +20,9 @@
   </object>
   
   <object id="dbOperate" type="TimeLapseSimulator.DataBase.ADO.DBOperate, TimeLapseSimulator">
-    <constructor-arg ref="slideADO"/>
+    <property name="provider" ref="dbProvider"/>
+    <property name="adoTemplate" ref="adoTemplate"/>
+    <property name="slideADO" ref="slideADO"/>
+    <!--<constructor-arg ref="slideADO"/>-->
   </object>
 </objects>

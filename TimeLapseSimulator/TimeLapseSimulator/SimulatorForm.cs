@@ -35,6 +35,8 @@ namespace TimeLapseSimulator
         private void SimulatorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.LogViewTimer.Stop();
+            operationFactory.ThreadRun = false;
+            operationFactory.Execute = false;
             OperationThread.Abort();
         }
 
@@ -78,6 +80,14 @@ namespace TimeLapseSimulator
             operationFactory.Device = device;
             operationFactory.DBOperate = dbOperate;
             OperationThread.Start();
+        }
+
+        private void btnStartStop_Click(object sender, EventArgs e)
+        {
+            bool canExecute = !operationFactory.Execute;
+            operationFactory.Execute = canExecute;
+            btnStartStop.Text = canExecute ? "Stop" : "Start";
+
         }
     }
 }
