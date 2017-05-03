@@ -29,12 +29,12 @@ namespace TimeLapseSimulator.UI
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            IList<TSLide> slides = dbOperate.QueryAllSlide();
-            foreach (TSLide slide in slides)
-            {
-                dbListView.AppendLog(new string[] { slide.Time.ToString("yyyy-MM-dd HH:mm:ss:ms"), slide.SlideID.ToString(), slide.SlideName,
-                slide.CellID.ToString(), slide.CellName, slide.FocalName});
-            }
+            //IList<TSLide> slides = dbOperate.QueryAllSlide();
+            //foreach (TSLide slide in slides)
+            //{
+            //    dbListView.AppendLog(new string[] { slide.Time.ToString("yyyy-MM-dd HH:mm:ss:ms"), slide.SlideID.ToString(), slide.SlideName,
+            //    slide.CellID.ToString(), slide.CellName, slide.FocalName});
+            //}
         }
     }
 }

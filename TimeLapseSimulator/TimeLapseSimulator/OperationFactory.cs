@@ -48,14 +48,6 @@ namespace TimeLapseSimulator
         public delegate void Flash(int slideID);
         public Flash FlashHandler;
 
-        private bool execute = false;
-
-        public bool Execute
-        {
-            get { return this.execute; }
-            set { this.execute = value; }
-        }
-
         private void FlashSlide(int slideID)
         {
             if (FlashHandler != null)
