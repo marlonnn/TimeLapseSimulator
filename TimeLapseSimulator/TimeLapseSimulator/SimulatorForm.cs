@@ -28,12 +28,60 @@ namespace TimeLapseSimulator
             this.Load += SimulatorForm_Load;
             this.FormClosing += SimulatorForm_FormClosing;
             this.KeyDown += SimulatorForm_KeyDown;
+            InitializeClickHander();
             operationFactory = new OperationFactory();
             operationFactory.AppendLogHandler += AppendLogHandler;
             operationFactory.SetWellColorHandler += SetWellColorHandler;
             operationFactory.ClearWellColorHandler += ClearWellColorHandler;
             operationFactory.FlashHandler += FlashHandler;
             OperationThread = new Thread(new ThreadStart(operationFactory.ExecuteInternal));
+        }
+
+        private void InitializeClickHander()
+        {
+            this.slideCtrl1.CellMouseClickHandler += CellMouseClickHandler;
+            this.slideCtrl2.CellMouseClickHandler += CellMouseClickHandler;
+            this.slideCtrl3.CellMouseClickHandler += CellMouseClickHandler;
+            this.slideCtrl4.CellMouseClickHandler += CellMouseClickHandler;
+        }
+
+
+        bool IsRowColIndexRight(int row, int col)
+        {
+            return row > -1 && col > -1;
+        }
+
+        private void CellMouseClickHandler(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == -1 || e.RowIndex == -1) return;    // no action needed when click on the column or row header, or top left cell
+
+            if (IsRowColIndexRight(e.RowIndex, e.ColumnIndex))
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    int rowIndex = e.RowIndex;
+                    int columnIndex = e.ColumnIndex;
+                    var grid = sender as DataGridView;
+                    if (grid != null && grid.Parent != null)
+                    {
+                        Plate plate = (Plate)grid.Parent;
+                        SlideCtrl slideCtrl = (SlideCtrl)plate.Parent;
+                        if (slideCtrl != null)
+                        {
+                            string slideName = slideCtrl.SlideName;
+                            //table: slideName
+                            //Cell: 
+                            int current = rowIndex * plate.PlateColumns + columnIndex + 1;
+
+                            SlideForm slideForm = SpringHelper.GetObject<SlideForm>("slideForm");
+                            slideForm.SetSLideName(slideCtrl.SlideName);
+                            slideForm.Row = rowIndex;
+                            slideForm.Colum = columnIndex;
+                            slideForm.ShowDialog();
+                        }
+                    }
+                }
+            }
         }
 
         private void SimulatorForm_KeyDown(object sender, KeyEventArgs e)
@@ -121,14 +169,6 @@ namespace TimeLapseSimulator
             operationFactory.DBOperate = dbOperate;
             operationFactory.Execute = true;
             OperationThread.Start();
-        }
-
-        private void btnStartStop_Click(object sender, EventArgs e)
-        {
-            bool canExecute = !operationFactory.Execute;
-            operationFactory.Execute = canExecute;
-            btnStartStop.Text = canExecute ? "Stop" : "Start";
-
         }
     }
 }

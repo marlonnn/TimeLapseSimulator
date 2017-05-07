@@ -307,6 +307,19 @@ namespace TimeLapseSimulator.UI
         {
             NewAPlate();
             InitialPlate();
+            this.Click += Plate_Click;
+        }
+
+        public EventHandler PlateClickHandler;
+
+        private void Plate_Click(object sender, EventArgs e)
+        {
+            PlateClickHandler?.Invoke(sender, e);
+        }
+
+        public DataGridView Grid
+        {
+            get { return this.grid; }
         }
 
         private void NewAPlate()

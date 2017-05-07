@@ -59,5 +59,11 @@ namespace TimeLapseSimulator.DataBase.ADO
             string sql = string.Format("Select * from {0} where Cell_ID = {1} and Focal_ID = {2}", tableName, cellID, focalID);
             return slideADO.FindAll(sql);
         }
+
+        public IList<TSLide> QuerySlides(string tableName, int currentIndex)
+        {
+            string sql = string.Format("Select * from {0} where ID > {1} and ID <= {2}", tableName, currentIndex, currentIndex + 10);
+            return slideADO.FindAll(sql);
+        }
     }
 }

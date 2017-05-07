@@ -11,4 +11,9 @@
           singleton="false">
     <property name="dbOperate" ref="dbOperate"/>
   </object>
+
+  <object name="slideForm" type="TimeLapseSimulator.UI.SlideForm, TimeLapseSimulator"
+        singleton="false">
+    <property name="dbOperate" ref="dbOperate"/>
+  </object>
 </objects>

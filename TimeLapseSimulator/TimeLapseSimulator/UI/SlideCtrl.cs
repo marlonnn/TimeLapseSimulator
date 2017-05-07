@@ -63,6 +63,13 @@ namespace TimeLapseSimulator.UI
             InitializeComponent();
             this.Load += SlideCtrl_Load;
         }
+        public delegate void CellMouseClickDelegate(object sender, DataGridViewCellMouseEventArgs e);
+        public CellMouseClickDelegate CellMouseClickHandler;
+        private void Grid_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            CellMouseClickHandler?.Invoke(sender, e);
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -82,6 +89,8 @@ namespace TimeLapseSimulator.UI
             this.Width = this.plate.Width;
             this.Height = this.plate.Height + 45;
             this.lblName.Text = SlideName;
+
+            this.plate.Grid.CellMouseClick += Grid_CellMouseClick;
         }
 
         public void SetWellColor(int row, int col, Color backColor)

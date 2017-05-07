@@ -145,6 +145,12 @@
     <Compile Include="UI\SlideCtrl.Designer.cs">
       <DependentUpon>SlideCtrl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\SlideForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SlideForm.Designer.cs">
+      <DependentUpon>SlideForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="SimulatorForm.resx">
       <DependentUpon>SimulatorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SlideCtrl.resx">
       <DependentUpon>SlideCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SlideForm.resx">
+      <DependentUpon>SlideForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
