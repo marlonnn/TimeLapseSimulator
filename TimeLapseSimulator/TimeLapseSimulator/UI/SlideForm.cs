@@ -19,6 +19,8 @@ namespace TimeLapseSimulator.UI
         public int Colum { get; set; }
 
         public int CurrentIndex { get; set; }
+
+        public int CellID { get; set; }
         public SlideForm()
         {
             InitializeComponent();
@@ -50,7 +52,7 @@ namespace TimeLapseSimulator.UI
         {
             try
             {
-                IList<TSLide> slides =  dbOperate.QuerySlides(this.slideCtrl.SlideName, CurrentIndex);
+                IList<TSLide> slides =  dbOperate.QuerySlides(this.slideCtrl.SlideName, CellID, CurrentIndex);
                 foreach (var slide in slides)
                 {
                     this.dataListView.AppendLog(new string[] { slide.Time.ToString("yyyy-MM-dd HH:mm:ss:ms"), slide.SlideName, slide.CellName, slide.FocalName});

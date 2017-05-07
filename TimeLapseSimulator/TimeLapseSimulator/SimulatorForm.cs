@@ -77,6 +77,7 @@ namespace TimeLapseSimulator
                             slideForm.SetSLideName(slideCtrl.SlideName);
                             slideForm.Row = rowIndex;
                             slideForm.Colum = columnIndex;
+                            slideForm.CellID = current;
                             slideForm.ShowDialog();
                         }
                     }

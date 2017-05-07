@@ -60,9 +60,9 @@ namespace TimeLapseSimulator.DataBase.ADO
             return slideADO.FindAll(sql);
         }
 
-        public IList<TSLide> QuerySlides(string tableName, int currentIndex)
+        public IList<TSLide> QuerySlides(string tableName, int cellID, int currentIndex)
         {
-            string sql = string.Format("Select * from {0} where ID > {1} and ID <= {2}", tableName, currentIndex, currentIndex + 10);
+            string sql = string.Format("Select * from {0} where Cell_ID = {1} and（ID > {2} and ID <= {3}）", tableName, cellID, currentIndex, currentIndex + 10);
             return slideADO.FindAll(sql);
         }
     }
