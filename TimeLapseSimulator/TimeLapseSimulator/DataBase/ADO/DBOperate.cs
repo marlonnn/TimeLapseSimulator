@@ -10,7 +10,6 @@ namespace TimeLapseSimulator.DataBase.ADO
     public class DBOperate
     {
         private SlideADO slideADO;
-
         private IDbProvider provider;
         private AdoTemplate adoTemplate;
 

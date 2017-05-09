@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TimeLapseSimulator.DataBase.ADO;
+using TimeLapseSimulator.Device;
 
 namespace TimeLapseSimulator.UI
 {
@@ -21,6 +22,8 @@ namespace TimeLapseSimulator.UI
         public int CurrentIndex { get; set; }
 
         public int CellID { get; set; }
+
+        public Slide Slide { get; set; }
         public SlideForm()
         {
             InitializeComponent();
@@ -29,44 +32,52 @@ namespace TimeLapseSimulator.UI
             this.FormClosing += SlideForm_FormClosing;
         }
 
+        private void Grid_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == -1 || e.RowIndex == -1) return;    // no action needed when click on the column or row header, or top left cell
+            if (IsRowColIndexRight(e.RowIndex, e.ColumnIndex))
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    Row = e.RowIndex;
+                    Colum = e.ColumnIndex;
+                    CellID = Row * plate.PlateColumns + Colum + 1;
+                    ClearColor();
+                    this.plate.SetWellColor(Row, Colum, Color.DarkGreen);
+                    this.SetInfomation();
+                }
+            }
+        }
+
+        bool IsRowColIndexRight(int row, int col)
+        {
+            return row > -1 && col > -1;
+        }
+
         private void SlideForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             CurrentIndex = 0;
-            this.SlideTimer.Enabled = false;
         }
 
         private void SlideForm_Load(object sender, EventArgs e)
         {
-            SetWellColor(Row, Colum, Color.DarkGreen);
-            this.dataListView.Timer = this.SlideTimer;
-            this.SlideTimer.Enabled = true;
-            this.SlideTimer.Interval = 5000;
+            this.plate.Grid.CellMouseClick += Grid_CellMouseClick;
+            this.plate.SetWellColor(Row, Colum, Color.DarkGreen);
         }
 
-        public void SetSLideName(string name)
+        public void ClearColor()
         {
-            this.slideCtrl.SlideName = name;
+            this.plate.ClearWellColor();
         }
 
-        private void SlideTimer_Tick(object sender, EventArgs e)
+        public void SetInfomation()
         {
-            try
-            {
-                IList<TSLide> slides =  dbOperate.QuerySlides(this.slideCtrl.SlideName, CellID, CurrentIndex);
-                foreach (var slide in slides)
-                {
-                    this.dataListView.AppendLog(new string[] { slide.Time.ToString("yyyy-MM-dd HH:mm:ss:ms"), slide.SlideName, slide.CellName, slide.FocalName});
-                }
-                CurrentIndex = CurrentIndex + 10;
-            }
-            catch (Exception ee)
-            {
-            }
+            this.labelSLide.Text = Slide.Name;
+            this.labelCell.Text = CellID.ToString();
+            this.labelPName.Text = Slide.Patient.Name;
+            this.labelPID.Text = Slide.Patient.ID.ToString();
+            this.labelTime.Text = Slide.Patient.Time.ToString("yyyy-MM-dd HH:mm:ss:ms");
         }
 
-        public void SetWellColor(int row, int col, Color backColor)
-        {
-            slideCtrl.SetWellColor(row, col, backColor);
-        }
     }
 }

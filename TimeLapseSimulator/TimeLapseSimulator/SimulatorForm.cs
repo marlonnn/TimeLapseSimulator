@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TimeLapseSimulator.DataBase.ADO;
+using TimeLapseSimulator.Device;
 using TimeLapseSimulator.UI;
 
 namespace TimeLapseSimulator
@@ -72,12 +73,13 @@ namespace TimeLapseSimulator
                             //table: slideName
                             //Cell: 
                             int current = rowIndex * plate.PlateColumns + columnIndex + 1;
-
+                            Slide slide = device.Slides[slideCtrl.ID -1];
                             SlideForm slideForm = SpringHelper.GetObject<SlideForm>("slideForm");
-                            slideForm.SetSLideName(slideCtrl.SlideName);
                             slideForm.Row = rowIndex;
                             slideForm.Colum = columnIndex;
                             slideForm.CellID = current;
+                            slideForm.Slide = slide;
+                            slideForm.SetInfomation();
                             slideForm.ShowDialog();
                         }
                     }
