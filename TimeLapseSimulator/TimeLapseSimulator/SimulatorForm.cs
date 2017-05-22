@@ -22,6 +22,9 @@ namespace TimeLapseSimulator
         private Thread OperationThread;
         private DBOperate dbOperate;
 
+
+        public List<SlideCtrl> SlideCtrls;
+
         public SimulatorForm()
         {
             InitializeComponent();
@@ -38,12 +41,38 @@ namespace TimeLapseSimulator
             OperationThread = new Thread(new ThreadStart(operationFactory.ExecuteInternal));
         }
 
+        public void InitializeSlideCtrls()
+        {
+            SlideCtrls = new List<SlideCtrl>();
+            for  (int i = 0; i < device.Slides.Count; i++)
+            {
+                SlideCtrl slideCtrl = new SlideCtrl();
+                slideCtrl.Flashing = false;
+                slideCtrl.FlickCount = 12;
+                slideCtrl.ID = device.Slides[i].ID;
+                slideCtrl.SlideName = device.Slides[i].Name;
+                slideCtrl.PlateRows = device.Slides[i].PlateRows;
+                slideCtrl.PlateColumns = device.Slides[i].PlateColumns;
+                slideCtrl.Location = new System.Drawing.Point( 45 + slideCtrl.Width * i, 13 + (i / 4) * slideCtrl.Height);
+                slideCtrl.Name = "slideCtrl" + i + 1;
+                slideCtrl.Size = new System.Drawing.Size(100, 195);
+                //slideCtrl.SlideName = "slide2";
+                slideCtrl.TabIndex = i;
+                slideCtrl.CellMouseClickHandler += CellMouseClickHandler;
+                this.Controls.Add(slideCtrl);
+                SlideCtrls.Add(slideCtrl);
+            }
+            this.logListView.Location = new Point(0, 13 + SlideCtrls[0].Height * (1 + device.Slides.Count % 4));
+            this.Width = (45 + SlideCtrls[0].Width) * device.Slides.Count + 95;
+            this.Height = 13 + SlideCtrls[0].Height * (1+ device.Slides.Count % 4)+ this.logListView.Height;
+        } 
+
         private void InitializeClickHander()
         {
-            this.slideCtrl1.CellMouseClickHandler += CellMouseClickHandler;
-            this.slideCtrl2.CellMouseClickHandler += CellMouseClickHandler;
-            this.slideCtrl3.CellMouseClickHandler += CellMouseClickHandler;
-            this.slideCtrl4.CellMouseClickHandler += CellMouseClickHandler;
+            //this.slideCtrl1.CellMouseClickHandler += CellMouseClickHandler;
+            //this.slideCtrl2.CellMouseClickHandler += CellMouseClickHandler;
+            //this.slideCtrl3.CellMouseClickHandler += CellMouseClickHandler;
+            //this.slideCtrl4.CellMouseClickHandler += CellMouseClickHandler;
         }
 
 
@@ -98,10 +127,14 @@ namespace TimeLapseSimulator
 
         private void ClearWellColorHandler()
         {
-            this.slideCtrl1.ClearColor();
-            this.slideCtrl2.ClearColor();
-            this.slideCtrl3.ClearColor();
-            this.slideCtrl4.ClearColor();
+            foreach (var slideCtrl in SlideCtrls)
+            {
+                slideCtrl.ClearColor();
+            }
+            //this.slideCtrl1.ClearColor();
+            //this.slideCtrl2.ClearColor();
+            //this.slideCtrl3.ClearColor();
+            //this.slideCtrl4.ClearColor();
         }
 
         private void FlashHandler(int slideID)
@@ -168,6 +201,7 @@ namespace TimeLapseSimulator
 
         private void SimulatorForm_Load(object sender, EventArgs e)
         {
+            InitializeSlideCtrls();
             operationFactory.Device = device;
             operationFactory.DBOperate = dbOperate;
             operationFactory.Execute = true;

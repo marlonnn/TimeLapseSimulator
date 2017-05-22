@@ -38,6 +38,8 @@
   <object name="slide1" type="TimeLapseSimulator.Device.Slide, TimeLapseSimulator">
     <property name="ID" value="1"/>
     <property name="Name" value="Slide1"/>
+    <property name="PlateRows" value="5"/>
+    <property name="PlateColumns" value="3"/>
     <property name="Patient">
       <object type="TimeLapseSimulator.Device.Patient, TimeLapseSimulator" >
         <property name="ID" value="1"/>
@@ -75,6 +77,8 @@
   <object name="slide2" type="TimeLapseSimulator.Device.Slide, TimeLapseSimulator">
     <property name="ID" value="2"/>
     <property name="Name" value="Slide2"/>
+    <property name="PlateRows" value="5"/>
+    <property name="PlateColumns" value="3"/>
     <property name="Patient">
       <object type="TimeLapseSimulator.Device.Patient, TimeLapseSimulator" >
         <property name="ID" value="2"/>
@@ -112,6 +116,8 @@
   <object name="slide3" type="TimeLapseSimulator.Device.Slide, TimeLapseSimulator">
     <property name="ID" value="3"/>
     <property name="Name" value="Slide3"/>
+    <property name="PlateRows" value="5"/>
+    <property name="PlateColumns" value="3"/>
     <property name="Patient">
       <object type="TimeLapseSimulator.Device.Patient, TimeLapseSimulator" >
         <property name="ID" value="3"/>
@@ -149,6 +155,8 @@
   <object name="slide4" type="TimeLapseSimulator.Device.Slide, TimeLapseSimulator">
     <property name="ID" value="4"/>
     <property name="Name" value="Slide4"/>
+    <property name="PlateRows" value="5"/>
+    <property name="PlateColumns" value="3"/>
     <property name="Patient">
       <object type="TimeLapseSimulator.Device.Patient, TimeLapseSimulator" >
         <property name="ID" value="4"/>

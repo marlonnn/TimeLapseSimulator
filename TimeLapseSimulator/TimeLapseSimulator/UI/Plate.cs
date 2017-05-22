@@ -203,7 +203,7 @@ namespace TimeLapseSimulator.UI
             }
         }
 
-        private void InitialPlate()
+        public void InitialPlate()
         {
             if (this.grid == null) return;
             this.grid.Rows.Clear();

@@ -22,6 +22,16 @@ namespace TimeLapseSimulator.Device
         public string Name { get; set; }
 
         /// <summary>
+        /// 培养皿包含胚胎的行数
+        /// </summary>
+        public int PlateRows { get; set; }
+
+        /// <summary>
+        /// 培养皿包含胚胎的列数
+        /// </summary>
+        public int PlateColumns { get; set; }
+
+        /// <summary>
         /// 培养皿所在的位置信息
         /// </summary>
         public Position Position { get; set; }

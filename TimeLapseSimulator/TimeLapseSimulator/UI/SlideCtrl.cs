@@ -58,11 +58,34 @@ namespace TimeLapseSimulator.UI
             }
         }
 
+        public int PlateRows { get; set; }
+
+        public int PlateColumns { get; set; }
+
+        private void InitializePlate()
+        {
+            this.plate = new Plate();
+            this.plate.CellsFontSize = 8F;
+            this.plate.ColumHeaderFontSize = 9F;
+            this.plate.Location = new System.Drawing.Point(0, 0);
+            this.plate.Name = "plate";
+            this.plate.PlateColumnHeadersHeight = 25;
+            this.plate.PlateColumns = PlateColumns;
+            this.plate.PlateRowHeadersWidth = 25;
+            this.plate.PlateRows = PlateRows;
+            this.plate.PlateWellsHeight = 25;
+            this.plate.PlateWellsWidth = 25;
+            this.plate.RowHeaderFontSize = 9F;
+            this.plate.TabIndex = 0;
+            this.Controls.Add(this.plate);
+        }
+
         public SlideCtrl()
         {
             InitializeComponent();
             this.Load += SlideCtrl_Load;
         }
+
         public delegate void CellMouseClickDelegate(object sender, DataGridViewCellMouseEventArgs e);
         public CellMouseClickDelegate CellMouseClickHandler;
         private void Grid_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -86,6 +109,8 @@ namespace TimeLapseSimulator.UI
 
         private void SlideCtrl_Load(object sender, EventArgs e)
         {
+            InitializePlate();
+
             this.Width = this.plate.Width;
             this.Height = this.plate.Height + 45;
             this.lblName.Text = SlideName;

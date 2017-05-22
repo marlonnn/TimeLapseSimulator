@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.LogViewTimer = new System.Windows.Forms.Timer(this.components);
-            this.slideCtrl4 = new TimeLapseSimulator.UI.SlideCtrl();
-            this.slideCtrl3 = new TimeLapseSimulator.UI.SlideCtrl();
-            this.slideCtrl2 = new TimeLapseSimulator.UI.SlideCtrl();
-            this.slideCtrl1 = new TimeLapseSimulator.UI.SlideCtrl();
+            //this.slideCtrl4 = new TimeLapseSimulator.UI.SlideCtrl();
+            //this.slideCtrl3 = new TimeLapseSimulator.UI.SlideCtrl();
+            //this.slideCtrl2 = new TimeLapseSimulator.UI.SlideCtrl();
+            //this.slideCtrl1 = new TimeLapseSimulator.UI.SlideCtrl();
             this.logListView = new TimeLapseSimulator.UI.LogListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -46,51 +46,51 @@
             // LogViewTimer
             // 
             this.LogViewTimer.Interval = 300;
-            // 
-            // slideCtrl4
-            // 
-            this.slideCtrl4.Flashing = false;
-            this.slideCtrl4.FlickCount = 13;
-            this.slideCtrl4.ID = 4;
-            this.slideCtrl4.Location = new System.Drawing.Point(511, 12);
-            this.slideCtrl4.Name = "slideCtrl4";
-            this.slideCtrl4.Size = new System.Drawing.Size(100, 195);
-            this.slideCtrl4.SlideName = "slide4";
-            this.slideCtrl4.TabIndex = 6;
-            // 
-            // slideCtrl3
-            // 
-            this.slideCtrl3.Flashing = false;
-            this.slideCtrl3.FlickCount = 12;
-            this.slideCtrl3.ID = 3;
-            this.slideCtrl3.Location = new System.Drawing.Point(357, 12);
-            this.slideCtrl3.Name = "slideCtrl3";
-            this.slideCtrl3.Size = new System.Drawing.Size(100, 195);
-            this.slideCtrl3.SlideName = "slide3";
-            this.slideCtrl3.TabIndex = 5;
-            // 
-            // slideCtrl2
-            // 
-            this.slideCtrl2.Flashing = false;
-            this.slideCtrl2.FlickCount = 12;
-            this.slideCtrl2.ID = 2;
-            this.slideCtrl2.Location = new System.Drawing.Point(203, 12);
-            this.slideCtrl2.Name = "slideCtrl2";
-            this.slideCtrl2.Size = new System.Drawing.Size(100, 195);
-            this.slideCtrl2.SlideName = "slide2";
-            this.slideCtrl2.TabIndex = 4;
-            // 
-            // slideCtrl1
-            // 
-            this.slideCtrl1.Flashing = false;
-            this.slideCtrl1.FlickCount = 13;
-            this.slideCtrl1.ID = 1;
-            this.slideCtrl1.Location = new System.Drawing.Point(47, 12);
-            this.slideCtrl1.Name = "slideCtrl1";
-            this.slideCtrl1.Size = new System.Drawing.Size(100, 195);
-            this.slideCtrl1.SlideName = "slide1";
-            this.slideCtrl1.TabIndex = 3;
-            // 
+            //// 
+            //// slideCtrl4
+            //// 
+            //this.slideCtrl4.Flashing = false;
+            //this.slideCtrl4.FlickCount = 13;
+            //this.slideCtrl4.ID = 4;
+            //this.slideCtrl4.Location = new System.Drawing.Point(511, 12);
+            //this.slideCtrl4.Name = "slideCtrl4";
+            //this.slideCtrl4.Size = new System.Drawing.Size(100, 195);
+            //this.slideCtrl4.SlideName = "slide4";
+            //this.slideCtrl4.TabIndex = 6;
+            //// 
+            //// slideCtrl3
+            //// 
+            //this.slideCtrl3.Flashing = false;
+            //this.slideCtrl3.FlickCount = 12;
+            //this.slideCtrl3.ID = 3;
+            //this.slideCtrl3.Location = new System.Drawing.Point(357, 12);
+            //this.slideCtrl3.Name = "slideCtrl3";
+            //this.slideCtrl3.Size = new System.Drawing.Size(100, 195);
+            //this.slideCtrl3.SlideName = "slide3";
+            //this.slideCtrl3.TabIndex = 5;
+            //// 
+            //// slideCtrl2
+            //// 
+            //this.slideCtrl2.Flashing = false;
+            //this.slideCtrl2.FlickCount = 12;
+            //this.slideCtrl2.ID = 2;
+            //this.slideCtrl2.Location = new System.Drawing.Point(203, 12);
+            //this.slideCtrl2.Name = "slideCtrl2";
+            //this.slideCtrl2.Size = new System.Drawing.Size(100, 195);
+            //this.slideCtrl2.SlideName = "slide2";
+            //this.slideCtrl2.TabIndex = 4;
+            //// 
+            //// slideCtrl1
+            //// 
+            //this.slideCtrl1.Flashing = false;
+            //this.slideCtrl1.FlickCount = 13;
+            //this.slideCtrl1.ID = 1;
+            //this.slideCtrl1.Location = new System.Drawing.Point(47, 12);
+            //this.slideCtrl1.Name = "slideCtrl1";
+            //this.slideCtrl1.Size = new System.Drawing.Size(100, 195);
+            //this.slideCtrl1.SlideName = "slide1";
+            //this.slideCtrl1.TabIndex = 3;
+            //// 
             // logListView
             // 
             this.logListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -148,10 +148,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 442);
-            this.Controls.Add(this.slideCtrl4);
-            this.Controls.Add(this.slideCtrl3);
-            this.Controls.Add(this.slideCtrl2);
-            this.Controls.Add(this.slideCtrl1);
+            //this.Controls.Add(this.slideCtrl4);
+            //this.Controls.Add(this.slideCtrl3);
+            //this.Controls.Add(this.slideCtrl2);
+            //this.Controls.Add(this.slideCtrl1);
             this.Controls.Add(this.logListView);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
@@ -170,11 +170,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
-        private UI.SlideCtrl slideCtrl1;
-        private UI.SlideCtrl slideCtrl2;
-        private UI.SlideCtrl slideCtrl3;
+        //private UI.SlideCtrl slideCtrl1;
+        //private UI.SlideCtrl slideCtrl2;
+        //private UI.SlideCtrl slideCtrl3;
         private System.Windows.Forms.Timer LogViewTimer;
-        private UI.SlideCtrl slideCtrl4;
+        //private UI.SlideCtrl slideCtrl4;
     }
 }
 
