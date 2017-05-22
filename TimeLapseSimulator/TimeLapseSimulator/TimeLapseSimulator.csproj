@@ -66,7 +66,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>References\Common.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="DevComponents.DotNetBar2, Version=11.1.0.5, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar2, Version=11.1.0.4, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>References\log4net.dll</HintPath>
@@ -107,12 +110,16 @@
     <Compile Include="DataBase\ADO\DBOperate.cs" />
     <Compile Include="DataBase\ADO\SlideADO.cs" />
     <Compile Include="Device\Camera.cs" />
+    <Compile Include="Device\CarbonDioxide.cs" />
     <Compile Include="Device\Cell.cs" />
     <Compile Include="Device\Device.cs" />
     <Compile Include="Device\Focal.cs" />
+    <Compile Include="Device\Humidity.cs" />
+    <Compile Include="Device\Oxygen.cs" />
     <Compile Include="Device\Patient.cs" />
     <Compile Include="Device\Position.cs" />
     <Compile Include="Device\Slide.cs" />
+    <Compile Include="Device\Temperature.cs" />
     <Compile Include="OperationFactory.cs" />
     <Compile Include="SimulatorForm.cs">
       <SubType>Form</SubType>
@@ -216,6 +223,7 @@
     </Content>
     <Content Include="Config\spring.ui.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Images\default.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -228,6 +236,7 @@
     </Content>
     <Content Include="References\C5.dll" />
     <Content Include="References\Common.Logging.dll" />
+    <Content Include="References\DevComponents.DotNetBar2.dll" />
     <Content Include="References\log4net.dll" />
     <Content Include="References\Spring.Aop.dll" />
     <Content Include="References\Spring.Core.dll" />

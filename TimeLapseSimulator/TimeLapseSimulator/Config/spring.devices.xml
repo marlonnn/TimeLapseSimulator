@@ -11,8 +11,30 @@
         <ref object="slide4" />
       </list>
     </property>
+    <property name="oxygen" ref="oxygen"/>
+    <property name="carbonDioxide" ref="carbonDioxide"/>
+    <property name="temperature" ref="temperature"/>
+    <property name="humidity" ref="humidity"/>
   </object>
 
+  <!--环境参数 begin-->
+  <object name="oxygen" type="TimeLapseSimulator.Device.Oxygen, TimeLapseSimulator">
+    <property name="Concentration" value="50.0"/>
+  </object>
+
+  <object name="carbonDioxide" type="TimeLapseSimulator.Device.CarbonDioxide, TimeLapseSimulator">
+    <property name="Concentration" value="50.0"/>
+  </object>
+
+  <object name="temperature" type="TimeLapseSimulator.Device.Temperature, TimeLapseSimulator">
+    <property name="Value" value="23.0"/>
+  </object>
+
+  <object name="humidity" type="TimeLapseSimulator.Device.Humidity, TimeLapseSimulator">
+    <property name="Value" value="40.0"/>
+  </object>
+  <!--环境参数 end-->
+  
   <object name="slide1" type="TimeLapseSimulator.Device.Slide, TimeLapseSimulator">
     <property name="ID" value="1"/>
     <property name="Name" value="Slide1"/>
