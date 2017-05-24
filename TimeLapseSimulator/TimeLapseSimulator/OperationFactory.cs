@@ -68,6 +68,7 @@ namespace TimeLapseSimulator
                             ClearWellColorHandler();
                         for (int i =0; i< Slides.Count; i++)
                         {
+                            InserTEnvironment(i + 1);
                             Slide slide = Slides[i];
                             //TO DO
                             //移动到培养皿对应的坐标位置
@@ -141,6 +142,37 @@ namespace TimeLapseSimulator
             Image returnImage = Image.FromStream(ms);
             return returnImage;
 
+        }
+
+        private TEnvironment CreateTEnvironment(int cultureID)
+        {
+            TEnvironment environment = new TEnvironment();
+            environment.CultureID = cultureID;
+            environment.OxygenConcentration = device.oxygen.Concentration;
+            environment.TemperatureValue = device.temperature.Value;
+            environment.HumidityValue = device.humidity.Value;
+            return environment;
+        }
+
+        private void InserTEnvironment(int index)
+        {
+            try
+            {
+                var envir = dbOperate.FindTEnvironment(index + 1);
+                TEnvironment environment = CreateTEnvironment(index + 1);
+                if (envir == null)
+                {
+                    dbOperate.InsertTEnvironment(environment);
+                }
+                else
+                {
+                    dbOperate.UpdateEnvironment(environment);
+                }
+            }
+            catch (Exception ee)
+            {
+
+            }
         }
     }
 }

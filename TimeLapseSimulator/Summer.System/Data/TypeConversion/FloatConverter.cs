@@ -36,6 +36,11 @@ namespace Summer.System.Data.TypeConversion
                 double d = (double)value;
                 newValue = (float)d;
             }
+            if (value.GetType().Equals(typeof(string)))
+            {
+                string s = (string)value;
+                newValue = float.Parse(s);
+            }
             else
             {
                 throw new Exception(string.Format("不能从类型{0}转化为Float类型。", value.GetType().ToString()));

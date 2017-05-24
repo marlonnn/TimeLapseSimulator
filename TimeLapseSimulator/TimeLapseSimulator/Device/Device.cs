@@ -11,9 +11,7 @@ namespace TimeLapseSimulator.Device
     /// </summary>
     public class Device
     {
-        /// <summary>
-        /// 所有的培养皿
-        /// </summary>
+        // 所有的培养皿
         public List<Slide> Slides { get; set; }
 
         //氧气

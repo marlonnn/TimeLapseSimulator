@@ -18,11 +18,17 @@
     <property name="adoTmplte" ref="adoTemplate"/>
     <property name="convertor" ref="mySqlConvertor"/>
   </object>
+
+  <object id="environmentADO" type="TimeLapseSimulator.DataBase.ADO.EnvironmentADO, TimeLapseSimulator">
+    <property name="adoTmplte" ref="adoTemplate"/>
+    <property name="convertor" ref="mySqlConvertor"/>
+  </object>
   
   <object id="dbOperate" type="TimeLapseSimulator.DataBase.ADO.DBOperate, TimeLapseSimulator">
     <property name="provider" ref="dbProvider"/>
     <property name="adoTemplate" ref="adoTemplate"/>
     <property name="slideADO" ref="slideADO"/>
+    <property name="environmentADO" ref="environmentADO"/>
     <!--<constructor-arg ref="slideADO"/>-->
   </object>
 </objects>

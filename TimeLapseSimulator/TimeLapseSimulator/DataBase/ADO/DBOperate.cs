@@ -10,6 +10,7 @@ namespace TimeLapseSimulator.DataBase.ADO
     public class DBOperate
     {
         private SlideADO slideADO;
+        private EnvironmentADO environmentADO;
         private IDbProvider provider;
         private AdoTemplate adoTemplate;
 
@@ -51,6 +52,22 @@ namespace TimeLapseSimulator.DataBase.ADO
         public void ExecuteNonQuery(TSLide slide)
         {
             slideADO.Insert(slide);
+        }
+
+        public void UpdateEnvironment(TEnvironment environment)
+        {
+            environmentADO.Update(environment);
+        }
+
+        public TEnvironment FindTEnvironment(int cultureID)
+        {
+            string sql = string.Format("select * from environment where Culture_ID = {0}", cultureID);
+            return environmentADO.Find(sql);
+        }
+
+        public void InsertTEnvironment(TEnvironment environment)
+        {
+            environmentADO.Insert(environment);
         }
 
         public IList<TSLide> QueryAllSlide(string tableName, int cellID, int focalID)

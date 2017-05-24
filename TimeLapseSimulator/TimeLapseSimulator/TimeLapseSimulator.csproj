@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBase\ADO\DBOperate.cs" />
+    <Compile Include="DataBase\ADO\EnvironmentADO.cs" />
     <Compile Include="DataBase\ADO\SlideADO.cs" />
     <Compile Include="Device\Camera.cs" />
     <Compile Include="Device\CarbonDioxide.cs" />
@@ -225,6 +226,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Config\timelapsesimulator.sql" />
     <Content Include="Images\default.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
