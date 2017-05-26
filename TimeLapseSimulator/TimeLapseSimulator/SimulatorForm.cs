@@ -21,9 +21,9 @@ namespace TimeLapseSimulator
         private OperationFactory operationFactory;
         private Thread OperationThread;
         private DBOperate dbOperate;
-
-
         public List<SlideCtrl> SlideCtrls;
+
+        public const int ColumnCount = 4;
 
         public SimulatorForm()
         {
@@ -32,12 +32,10 @@ namespace TimeLapseSimulator
             this.Load += SimulatorForm_Load;
             this.FormClosing += SimulatorForm_FormClosing;
             this.KeyDown += SimulatorForm_KeyDown;
-            InitializeClickHander();
             operationFactory = new OperationFactory();
             operationFactory.AppendLogHandler += AppendLogHandler;
             operationFactory.SetWellColorHandler += SetWellColorHandler;
             operationFactory.ClearWellColorHandler += ClearWellColorHandler;
-            operationFactory.FlashHandler += FlashHandler;
             OperationThread = new Thread(new ThreadStart(operationFactory.ExecuteInternal));
         }
 
@@ -47,13 +45,11 @@ namespace TimeLapseSimulator
             for  (int i = 0; i < device.Slides.Count; i++)
             {
                 SlideCtrl slideCtrl = new SlideCtrl();
-                slideCtrl.Flashing = false;
-                slideCtrl.FlickCount = 12;
                 slideCtrl.ID = device.Slides[i].ID;
                 slideCtrl.SlideName = device.Slides[i].Name;
                 slideCtrl.PlateRows = device.Slides[i].PlateRows;
                 slideCtrl.PlateColumns = device.Slides[i].PlateColumns;
-                slideCtrl.Location = new System.Drawing.Point( 45 + slideCtrl.Width * i, 13 + (i / 4) * slideCtrl.Height);
+                slideCtrl.Location = new System.Drawing.Point( 45 + (i % ColumnCount) *slideCtrl.Width, 13 + (i / ColumnCount) * slideCtrl.Height);
                 slideCtrl.Name = "slideCtrl" + i + 1;
                 slideCtrl.Size = new System.Drawing.Size(100, 195);
                 //slideCtrl.SlideName = "slide2";
@@ -62,18 +58,10 @@ namespace TimeLapseSimulator
                 this.Controls.Add(slideCtrl);
                 SlideCtrls.Add(slideCtrl);
             }
-            this.logListView.Location = new Point(0, 13 + SlideCtrls[0].Height * (1 + device.Slides.Count % 4));
-            this.Width = (45 + SlideCtrls[0].Width) * device.Slides.Count + 95;
-            this.Height = 13 + SlideCtrls[0].Height * (1+ device.Slides.Count % 4)+ this.logListView.Height;
+            this.logListView.Location = new Point(0, (13 + SlideCtrls[0].Height) * (1 + device.Slides.Count % ColumnCount) + 13);
+            this.Width = (45 + SlideCtrls[0].Width) * ColumnCount + 95;
+            this.Height = (13  + SlideCtrls[0].Height) * (1+ device.Slides.Count % ColumnCount) + this.logListView.Height + 13;
         } 
-
-        private void InitializeClickHander()
-        {
-            //this.slideCtrl1.CellMouseClickHandler += CellMouseClickHandler;
-            //this.slideCtrl2.CellMouseClickHandler += CellMouseClickHandler;
-            //this.slideCtrl3.CellMouseClickHandler += CellMouseClickHandler;
-            //this.slideCtrl4.CellMouseClickHandler += CellMouseClickHandler;
-        }
 
 
         bool IsRowColIndexRight(int row, int col)
@@ -130,29 +118,6 @@ namespace TimeLapseSimulator
             foreach (var slideCtrl in SlideCtrls)
             {
                 slideCtrl.ClearColor();
-            }
-            //this.slideCtrl1.ClearColor();
-            //this.slideCtrl2.ClearColor();
-            //this.slideCtrl3.ClearColor();
-            //this.slideCtrl4.ClearColor();
-        }
-
-        private void FlashHandler(int slideID)
-        {
-            foreach (var ctrl in this.Controls)
-            {
-                SlideCtrl sc = ctrl as SlideCtrl;
-                if (sc != null)
-                {
-                    if (sc.ID == slideID)
-                    {
-                        sc.Flashing = true;
-                    }
-                    else
-                    {
-                        sc.Flashing = false;
-                    }
-                }
             }
         }
 

@@ -33,31 +33,6 @@ namespace TimeLapseSimulator.UI
             }
         }
 
-        //private Timer FlashTimer;
-
-        private int flickCount;
-
-        public int FlickCount
-        {
-            get { return this.flickCount; }
-            set { this.flickCount = value; }
-        }
-        private bool flashing;
-        public bool Flashing
-        {
-            get { return this.flashing; }
-            set
-            {
-                if (value != this.flashing)
-                {
-                    flickCount = 0;
-                    this.flashing = value;
-                    this.Invalidate();
-                }
-
-            }
-        }
-
         public int PlateRows { get; set; }
 
         public int PlateColumns { get; set; }
@@ -96,15 +71,6 @@ namespace TimeLapseSimulator.UI
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            flickCount++;
-            if (Flashing)
-            {
-                FlickerColor(flickCount);
-            }
-            else
-            {
-                FlickerColor(0);
-            }
         }
 
         private void SlideCtrl_Load(object sender, EventArgs e)
@@ -112,9 +78,7 @@ namespace TimeLapseSimulator.UI
             InitializePlate();
 
             this.Width = this.plate.Width;
-            this.Height = this.plate.Height + 45;
-            this.lblName.Text = SlideName;
-
+            this.Height = this.plate.Height;
             this.plate.Grid.CellMouseClick += Grid_CellMouseClick;
         }
 
@@ -128,10 +92,5 @@ namespace TimeLapseSimulator.UI
             this.plate.ClearWellColor();
         }
 
-        public void FlickerColor(int cycle)
-        {
-            this.lblName.ForeColor = cycle % 2 == 0 ? this.ForeColor : Color.Red;
-            this.lblName.Invalidate();
-        }
     }
 }
