@@ -98,6 +98,7 @@ namespace TimeLapseSimulator
                                         foreach (Focal focal in focals)
                                         {
                                             //1.拍照
+                                            string imagePath = string.Format("{0}\\Images\\default.png", System.Environment.CurrentDirectory);
                                             byte[] image = Camera.ImageToByteArray(string.Format("{0}\\Images\\default.png", System.Environment.CurrentDirectory));
                                             Thread.Sleep(200);
                                             //2.添加日志信息
@@ -107,9 +108,10 @@ namespace TimeLapseSimulator
                                                 slide.Name, cell.Name, focal.ID.ToString(),
                                                 string.Format("{0}\\Images\\default.png", System.Environment.CurrentDirectory), "Success"});
                                             //3.存数据库
-                                            //TSLide s = CreateTSlide(slide, cell, focal, image);
+                                            TSLide s = CreateTSlide(slide, cell, focal, image, imagePath);
                                             //dbOperate.ExecuteNonQuery(s);
-                                            //dbOperate.ExecuteNonQuery(string.Format("Slide{0}", slide.ID), slide.ID, slide.Name, cell.ID, cell.Name, focal.ID, focal.ID.ToString(), image);
+                                            dbOperate.ExecuteNonQuery(string.Format("Slide{0}", slide.ID), slide.ID, slide.Name, cell.ID, cell.Name, 
+                                                focal.ID, focal.ID.ToString(), image, imagePath);
                                             Thread.Sleep(100);
                                         }
                                     }
@@ -122,7 +124,7 @@ namespace TimeLapseSimulator
         }
 
 
-        private TSLide CreateTSlide(Slide slide, Cell cell, Focal focal, byte[] image)
+        private TSLide CreateTSlide(Slide slide, Cell cell, Focal focal, byte[] image, string imagePath)
         {
             TSLide s = new TSLide();
             s.SlideID = slide.ID;
@@ -133,6 +135,7 @@ namespace TimeLapseSimulator
             s.FocalName = focal.ID.ToString();
             s.Time = DateTime.Now;
             s.Image = image;
+            s.ImagePath = imagePath;
             return s;
         }
 

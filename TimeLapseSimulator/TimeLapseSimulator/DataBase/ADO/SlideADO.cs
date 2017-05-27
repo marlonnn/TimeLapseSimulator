@@ -40,5 +40,8 @@ namespace TimeLapseSimulator.DataBase.ADO
 
         [FieldAttribute("Image")]
         public byte[] Image;
+
+        [FieldAttribute("Image_Path")]
+        public string ImagePath;
     }
 }

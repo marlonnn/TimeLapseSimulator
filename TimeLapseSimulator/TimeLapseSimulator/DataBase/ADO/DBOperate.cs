@@ -29,9 +29,9 @@ namespace TimeLapseSimulator.DataBase.ADO
             adoTemplate.ExecuteNonQuery(System.Data.CommandType.Text, sql, parameters);
         }
 
-        public void ExecuteNonQuery(string tableName, int SlideID,string SlideName, int CellID, string CellName, int FocalID, string FocalName, byte[] Image)
+        public void ExecuteNonQuery(string tableName, int SlideID,string SlideName, int CellID, string CellName, int FocalID, string FocalName, byte[] Image, string imagePath)
         {
-            string sql = string.Format("insert into {0}(Slide_ID, Slide_Name, Cell_ID, Cell_Name, Focal_ID, Focal_Name, Time, Image) values(@Slide_ID, @Slide_Name, @Cell_ID, @Cell_Name, @Focal_ID, @Focal_Name, @Time, @Image)", tableName);
+            string sql = string.Format("insert into {0}(Slide_ID, Slide_Name, Cell_ID, Cell_Name, Focal_ID, Focal_Name, Time, Image, Image_Path) values(@Slide_ID, @Slide_Name, @Cell_ID, @Cell_Name, @Focal_ID, @Focal_Name, @Time, @Image, @Image_Path)", tableName);
             DbParameters parameters = new DbParameters(provider);
             parameters.AddParameter(new MySqlParameter("@Slide_ID", SlideID));
             parameters.AddParameter(new MySqlParameter("@Slide_Name", SlideName));
@@ -41,6 +41,7 @@ namespace TimeLapseSimulator.DataBase.ADO
             parameters.AddParameter(new MySqlParameter("@Focal_Name", FocalName));
             parameters.AddParameter(new MySqlParameter("@Time", DateTime.Now));
             parameters.AddParameter(new MySqlParameter("@Image", Image));
+            parameters.AddParameter(new MySqlParameter("@Image_Path", imagePath));
             adoTemplate.ExecuteNonQuery(System.Data.CommandType.Text, sql, parameters);
         }
 
