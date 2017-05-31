@@ -90,6 +90,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>References\Spring.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Summer.System, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\Summer.System.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -195,12 +199,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Summer.System\Summer.System.csproj">
-      <Project>{cd89e930-b8ef-48af-9efe-d78efb313c76}</Project>
-      <Name>Summer.System</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\log4net.xml" />

@@ -108,11 +108,11 @@ namespace TimeLapseSimulator
                                                 slide.Name, cell.Name, focal.ID.ToString(),
                                                 string.Format("{0}\\Images\\default.png", System.Environment.CurrentDirectory), "Success"});
                                             //3.存数据库
-                                            //TSLide s = CreateTSlide(slide, cell, focal, image, imagePath);
-                                            ////dbOperate.ExecuteNonQuery(s);
-                                            //dbOperate.ExecuteNonQuery(string.Format("Slide{0}", slide.ID), slide.ID, slide.Name, cell.ID, cell.Name, 
-                                            //    focal.ID, focal.ID.ToString(), image, imagePath);
-                                            //Thread.Sleep(100);
+                                            TSLide s = CreateTSlide(slide, cell, focal, image, imagePath);
+                                            //dbOperate.ExecuteNonQuery(s);
+                                            dbOperate.ExecuteNonQuery(string.Format("Slide{0}", slide.ID), slide.ID, slide.Name, cell.ID, cell.Name,
+                                                focal.ID, focal.ID.ToString(), image, imagePath);
+                                            Thread.Sleep(100);
                                         }
                                     }
                                 }
