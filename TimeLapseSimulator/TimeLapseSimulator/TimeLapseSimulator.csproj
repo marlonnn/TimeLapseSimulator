@@ -182,6 +182,7 @@
     <EmbeddedResource Include="UI\SlideForm.resx">
       <DependentUpon>SlideForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Config\配置说明.docx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

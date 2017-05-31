@@ -41,8 +41,9 @@ CREATE TABLE `slide1` (
   `Focal_Name` varchar(255) DEFAULT NULL,
   `Time` datetime DEFAULT NULL,
   `Image` longblob,
+  `Image_Path` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=1438 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for slide2
@@ -58,8 +59,9 @@ CREATE TABLE `slide2` (
   `Focal_Name` varchar(255) DEFAULT NULL,
   `Time` datetime DEFAULT NULL,
   `Image` longblob,
+  `Image_Path` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=1366 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for slide3
@@ -75,8 +77,9 @@ CREATE TABLE `slide3` (
   `Focal_Name` varchar(255) DEFAULT NULL,
   `Time` datetime DEFAULT NULL,
   `Image` longblob,
+  `Image_Path` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=1269 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for slide4
@@ -92,5 +95,6 @@ CREATE TABLE `slide4` (
   `Focal_Name` varchar(255) DEFAULT NULL,
   `Time` datetime DEFAULT NULL,
   `Image` longblob,
+  `Image_Path` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=1227 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;

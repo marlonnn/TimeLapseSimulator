@@ -9,7 +9,6 @@
         <ref object="slide2" />
         <ref object="slide3" />
         <ref object="slide4" />
-        <ref object="slide5" />
       </list>
     </property>
     <property name="oxygen" ref="oxygen"/>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <!--复制此文档各种Ioc定义方式到需要的地方-->
 <objects xmlns="http://www.springframework.net">
-  <!--培养皿的结构为3x5-->
+  <!--培养皿的结构为5x3-->
   <!--培养皿1胚胎1-->
   <object name="S1_Cell1" type="TimeLapseSimulator.Device.Cell, TimeLapseSimulator">
     <property name="ID" value="1"/>
