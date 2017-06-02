@@ -13,7 +13,7 @@ namespace TimeLapseSimulator.DataBase.ADO
         private EnvironmentADO environmentADO;
         private IDbProvider provider;
         private AdoTemplate adoTemplate;
-
+        public string queryMode;//Binary or ImagePath
         public void ExecuteNonQuery(TSLide slide, string tableName)
         {
             string sql = string.Format("insert into {0}(Slide_ID, Slide_Name, Cell_ID, Cell_Name, Focal_ID, Focal_Name, Time, Image) values(@Slide_ID, @Slide_Name, @Cell_ID, @Cell_Name, @Focal_ID, @Focal_Name, @Time, @Image)", tableName);
@@ -77,16 +77,44 @@ namespace TimeLapseSimulator.DataBase.ADO
             return slideADO.FindAll(sql);
         }
 
-        //public IList<TSLide> QuerySlides(string tableName, int cellID, int currentIndex)
-        //{
-        //    string sql = string.Format("Select * from {0} where Cell_ID = {1} and（ID > {2} and ID <= {3}）", tableName, cellID, currentIndex, currentIndex + 10);
-        //    return slideADO.FindAll(sql);
-        //}
-
         public IList<TSLide> QuerySlides(string tableName, int cellID, int focusID)
         {
-            string sql = string.Format("Select * from {0} where Cell_ID = {1} and Focal_ID = {2}", tableName, cellID, focusID);
-            return slideADO.FindAll(sql);
+            IList<TSLide> slides = null;
+            switch (queryMode)
+            {
+                case "Binary":
+                    string sql = string.Format("Select * from {0} where Cell_ID = {1} and Focal_ID = {2}", tableName, cellID, focusID);
+                    slides = slideADO.FindAll(sql);
+                    break;
+                case "ImagePath":
+                    slides = new List<TSLide>();
+                    string sql1 = string.Format("Select ID, Slide_ID, Slide_Name, Cell_ID, Cell_Name,Focal_ID,Focal_Name,Time,Image_Path from {0} where (Cell_ID = {1} and Focal_ID = {2})", tableName, cellID, focusID);
+                    adoTemplate.QueryWithRowCallbackDelegate(System.Data.CommandType.Text,
+                        sql1, 
+                        (r) =>
+                        {
+                            try
+                            {
+                                TSLide slide = new TSLide();
+                                int ID = r.GetInt32(0);
+                                slide.SlideID = r.GetInt32(1);
+                                slide.SlideName = r.GetString(2);
+                                slide.CellID = r.GetInt32(3);
+                                slide.CellName = r.GetString(4);
+                                slide.FocalID = r.GetInt32(5);
+                                slide.FocalName = r.GetString(6);
+                                slide.Time = r.GetDateTime(7);
+                                slide.ImagePath = r.GetString(8);
+                                slides.Add(slide);
+                            }
+                            catch (Exception ee)
+                            {
+
+                            }
+                        });
+                    break;
+            }
+            return slides;
         }
     }
 }

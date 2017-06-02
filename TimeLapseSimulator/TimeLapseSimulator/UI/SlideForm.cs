@@ -123,8 +123,17 @@ namespace TimeLapseSimulator.UI
                 }
                 else
                 {
-                    Image image = Camera.ByteArrayToImage(this.slides[currentIndex].Image);
-                    this.pictureBox.Image = image;
+                    Image image = null;
+                    switch (dbOperate.queryMode)
+                    {
+                        case "Binary":
+                            image = Camera.ByteArrayToImage(this.slides[currentIndex].Image);
+                            this.pictureBox.Image = image;
+                            break;
+                        case "ImagePath":
+                            this.pictureBox.Image = Image.FromFile(this.slides[currentIndex].ImagePath);
+                            break;
+                    }
                     this.labelInfo.Text = string.Format("Starting...Current Image is {0} of amount {1}", currentIndex + 1, this.slides.Count);
                     currentIndex++;
                     if (currentIndex == this.slides.Count)

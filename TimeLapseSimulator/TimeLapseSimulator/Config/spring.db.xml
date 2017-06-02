@@ -29,6 +29,7 @@
     <property name="adoTemplate" ref="adoTemplate"/>
     <property name="slideADO" ref="slideADO"/>
     <property name="environmentADO" ref="environmentADO"/>
+    <property name="queryMode" value="ImagePath"/>
     <!--<constructor-arg ref="slideADO"/>-->
   </object>
 </objects>

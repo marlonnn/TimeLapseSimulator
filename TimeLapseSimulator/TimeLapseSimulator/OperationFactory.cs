@@ -19,6 +19,8 @@ namespace TimeLapseSimulator
 
         private bool execute = false;
 
+        public List<string> Images;
+
         public bool Execute
         {
             get { return this.execute; }
@@ -58,6 +60,7 @@ namespace TimeLapseSimulator
         {
             if (device != null)
             {
+                int index = 0;
                 List<Slide> Slides = device.Slides;
                 if (Slides != null && Slides.Count > 0)
                 {
@@ -98,23 +101,25 @@ namespace TimeLapseSimulator
                                         foreach (Focal focal in focals)
                                         {
                                             //1.拍照
-                                            string imagePath = string.Format("{0}\\Images\\default.png", System.Environment.CurrentDirectory);
-                                            byte[] image = Camera.ImageToByteArray(string.Format("{0}\\Images\\default.png", System.Environment.CurrentDirectory));
-                                            Thread.Sleep(200);
+                                            string imagePath = Images[index];
+                                            byte[] image = Camera.ImageToByteArray(imagePath);
+                                            Thread.Sleep(20);
                                             //2.添加日志信息
                                             if (AppendLogHandler != null)
                                                 AppendLogHandler(new string[] {
                                                 DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ms"),
-                                                slide.Name, cell.Name, focal.ID.ToString(),
-                                                string.Format("{0}\\Images\\default.png", System.Environment.CurrentDirectory), "Success"});
+                                                slide.Name, cell.Name, focal.ID.ToString(), imagePath, "Success"});
                                             //3.存数据库
-                                            TSLide s = CreateTSlide(slide, cell, focal, image, imagePath);
-                                            //dbOperate.ExecuteNonQuery(s);
-                                            dbOperate.ExecuteNonQuery(string.Format("Slide{0}", slide.ID), slide.ID, slide.Name, cell.ID, cell.Name,
-                                                focal.ID, focal.ID.ToString(), image, imagePath);
-                                            Thread.Sleep(100);
+                                            //TSLide s = CreateTSlide(slide, cell, focal, image, imagePath);
+                                            ////dbOperate.ExecuteNonQuery(s);
+                                            //dbOperate.ExecuteNonQuery(string.Format("Slide{0}", slide.ID), slide.ID, slide.Name, cell.ID, cell.Name,
+                                            //    focal.ID, focal.ID.ToString(), image, imagePath);
+                                            Thread.Sleep(10);
                                         }
                                     }
+                                    index++;
+                                    if (index == Images.Count)
+                                        index = 0;
                                 }
                             }
                         }
