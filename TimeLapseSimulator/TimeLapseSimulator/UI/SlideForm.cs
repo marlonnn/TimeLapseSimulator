@@ -125,13 +125,13 @@ namespace TimeLapseSimulator.UI
                 {
                     Image image = Camera.ByteArrayToImage(this.slides[currentIndex].Image);
                     this.pictureBox.Image = image;
-                    this.labelInfo.Text = string.Format("Starting...Current Image is {0} of amount {1}", currentIndex, this.slides.Count);
+                    this.labelInfo.Text = string.Format("Starting...Current Image is {0} of amount {1}", currentIndex + 1, this.slides.Count);
                     currentIndex++;
                     if (currentIndex == this.slides.Count)
                     {
                         currentIndex = 0;
                         this.timer.Enabled = false;
-                        this.labelInfo.Text = string.Format("Stop...Current Image is {0} of amount {1}", currentIndex, this.slides.Count);
+                        this.labelInfo.Text = string.Format("Stop...Current Image is {0} of amount {1}", this.slides.Count, this.slides.Count);
                     }
                 }
             }
